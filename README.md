@@ -1,4 +1,7 @@
 # exitsign
 Utility library for handy usage of exit statuses in Java software
 
-Bookmarks to related resource: [https://delicious.com/anton.vorobyev/exitsign](https://delicious.com/anton.vorobyev/exitsign)
+## Related Resource
+
+All bookmarks to related resources are collected at delicious: [https://delicious.com/anton.vorobyev/exitsign]
+(https://delicious.com/anton.vorobyev/exitsign)
