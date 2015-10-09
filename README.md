@@ -1,4 +1,4 @@
-"A picture is worth a thousand words"
+*“A picture is worth a thousand words”*
 
 [![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg)](https://travis-ci.org/antonvorobyev/exitsign)
 
