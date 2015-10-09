@@ -8,6 +8,252 @@
     <artifactId>exitsign</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
+    <name>Exit Sign</name>
     <description>Utility library for handy usage of exit statuses in Java software</description>
+
+    <licenses>
+
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+
+    </licenses>
+
+    <url>https://antonvorobyev.github.io/exitsign/</url>
+
+    <inceptionYear>2015</inceptionYear>
+
+    <organization>
+        <name>Anton Vorobyev</name>
+        <url>http://vorobyev.co</url>
+    </organization>
+
+    <developers>
+
+        <developer>
+            <id>anton.vorobyev</id>
+            <name>Anton Vorobyev</name>
+            <email>anton@vorobyev.co</email>
+            <organization>Anton Vorobyev</organization>
+            <organizationUrl>http://vorobyev.co</organizationUrl>
+            <timezone>Asia/Yekaterinburg</timezone>
+
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+
+        </developer>
+
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:antonvorobyev/exitsign.git</connection>
+        <developerConnection>scm:git:git@github.com:antonvorobyev/exitsign.git</developerConnection>
+        <url>https://github.com/antonvorobyev/exitsign</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/antonvorobyev/exitsign/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>travis</system>
+        <url>https://travis-ci.org/antonvorobyev/exitsign</url>
+
+        <notifiers>
+
+            <notifier>
+                <type>mail</type>
+                <sendOnError>true</sendOnError>
+                <sendOnFailure>true</sendOnFailure>
+            </notifier>
+
+        </notifiers>
+
+    </ciManagement>
+
+    <distributionManagement>
+
+        <downloadUrl>https://antonvorobyev.github.io/exitsign/</downloadUrl>
+
+        <!-- NOTE: Following lines can be introduced later -->
+        <!--<repository>-->
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+        <!--</repository>-->
+
+        <!--<snapshotRepository>-->
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+        <!--</snapshotRepository>-->
+
+        <!--<site>-->
+            <!--<id>gh-pages</id>-->
+            <!--<name>Exit Sign Site</name>-->
+            <!--<url>scm:git:ssh://git@github.com/antonvorobyev/exitsign.git</url>-->
+        <!--</site>-->
+
+    </distributionManagement>
+
+    <build>
+
+        <defaultGoal>clean verify site assembly:single</defaultGoal>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+
+                <executions>
+
+                    <execution>
+                        <id>attach-sources</id>
+
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+
+                    </execution>
+
+                </executions>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+
+                <executions>
+
+                    <execution>
+                        <id>attach-javadocs</id>
+
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+
+                    </execution>
+
+                </executions>
+
+            </plugin>
+
+            <!-- NOTE: Following lines can be introduced later -->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>versions-maven-plugin</artifactId>-->
+                <!--<version>2.2</version>-->
+
+                <!--<configuration>-->
+                    <!--<generateBackupPoms>false</generateBackupPoms>-->
+                <!--</configuration>-->
+
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.5</version>
+
+                <configuration>
+
+                    <descriptors>
+                        <descriptor>src/main/assembly/custom.xml</descriptor>
+                    </descriptors>
+
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <attach>false</attach>
+                </configuration>
+
+            </plugin>
+
+            <!-- NOTE: Following line can be introduced later -->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                <!--<version>1.6</version>-->
+
+                <!--<executions>-->
+
+                    <!--<execution>-->
+                        <!--<id>sign-artifacts</id>-->
+
+                        <!--<goals>-->
+                            <!--<goal>sign</goal>-->
+                        <!--</goals>-->
+
+                    <!--</execution>-->
+
+                <!--</executions>-->
+
+            <!--</plugin>-->
+
+            <!-- NOTE: Following line can be introduced later -->
+            <!--<plugin>-->
+                <!--<groupId>org.sonatype.plugins</groupId>-->
+                <!--<artifactId>nexus-staging-maven-plugin</artifactId>-->
+                <!--<version>1.6.3</version>-->
+                <!--<extensions>true</extensions>-->
+
+                <!--<configuration>-->
+                    <!--<serverId>ossrh</serverId>-->
+                    <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+                    <!--<autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+                <!--</configuration>-->
+
+            <!--</plugin>-->
+
+        </plugins>
+
+        <!-- NOTE: Following line can be introduced later -->
+        <!--<extensions>-->
+
+            <!--<extension>-->
+                <!--<groupId>org.apache.maven.wagon</groupId>-->
+                <!--<artifactId>wagon-scm</artifactId>-->
+                <!--<version>2.10</version>-->
+            <!--</extension>-->
+
+            <!--<extension>-->
+                <!--<groupId>org.apache.maven.scm</groupId>-->
+                <!--<artifactId>maven-scm-manager-plexus</artifactId>-->
+                <!--<version>1.9.4</version>-->
+            <!--</extension>-->
+
+            <!--<extension>-->
+                <!--<groupId>org.apache.maven.scm</groupId>-->
+                <!--<artifactId>maven-scm-provider-gitexe</artifactId>-->
+                <!--<version>1.9.4</version>-->
+            <!--</extension>-->
+
+        <!--</extensions>-->
+
+    </build>
 
 </project>
