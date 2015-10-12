@@ -2,9 +2,18 @@ language: java
 
 sudo: false
 
+env:
+  global:
+    - OSSRH_USERNAME=anton.vorobyev
+    - secure: "XGf6hAg3sr3rYVwcu5c+UtFE2c/4neXHM9v8RmfYm8nhUZJPBkvd3HE8UEX10y7Dixfww111owdmnXNmmpd5L70X/DJ2mlTfZebTw7Dxc+KB/ljVYMymu93U5/rRJhKvyhpuyCH6+W0CvaSJOQi6qQP8lJsu16jzMIuf7oWCsN1IgjQWvK+O4uJLOSHGtYOUoQrcHCfYCg1f/9BuGQUZYP4VZw8CK/nSawUyhVjsk1zuYT+dc87E8GxTx4tzHvizTT17D1upVQZTd/GHjHw5AZTr6a7ZZk2Tws+Js/8QoByIpPSzgAjM2nzlnshYYD6KLHD8xPW22HIX+aLFHjhSbdmgTxCtz1zSVXsSWaha/m+B7ZiHtevIytZseDXsi3G/l3dS/ZmSIPUd3EVm9ZZYk68KlvD9QnfHYTN19IM1c81hpn+JxflfbhIjBRLJO/6Z8YX55QlPH2JVU4YBt8BTtqwLOpl7ywRHwUuSs7FGKN4t5NgFnYNexG3Sg7CTyBUhqqclBmogPNNqvGYx4Onf6ZazoMRAeyIsWkVvYaC/wLGKr4FO7CUi/1GFQ0aO3e2qw8iSUte9lVPay1FYoykilVBiwAQs8QiAKqTsIV+GE9LfSrrTPuxbJz6qTSrRyP0v0mdi8Rptf481Y09tfDubGXlVPcl88PW3ILVX/hdR0Q0="
+    - secure: "vIOw/jaDZuJ0HM9msv/RRBtHMgY+qfsrw2f4cQ02MybrKjZRk4exT54DFY9Q4fTwy6Sbvuy9HxyOrJA+rvEyMsf4ItpgliJCkNM1BOZVuw9GmPdIc+MqKrFomISaoZP/Mqk7vQJF1WHjh0z1MZAQdxR4rOYT1cHOy3ICSdIOyWEDXUZ+3aj/BXcjaE4+cmZXFBQ/7UEgRl/qNi9gNo0U0qNsOGBMbwyt0e2TuIjLRSLEKyJ0BWQVef6ZzAEjIPdJ7XT4QCD7lOAUFC29Q32NxdR8hDMQeSkiADyhAdmUVyuzRYo8qZxjn99fVTA0r66PgIpDUm+b7Nr5oLmSD1oJTDlkbCkRxvxhHZnVwmlt6BVeypkUSczKtlHIpaV6OycKf39h9ryMV0/LbLIzhYwC1rgg8nwcj1b74nXOhRsfoJkht59KXXTgpvn+hL9ucH0EtPGs2Oz6/EWRRBzzMMwmVRgHPWXrWeil+Qt+cm8LzA6cyEt+LUTl/PHSzwARA00NSoMoQTsqgqVwWKZwUvUnwLRfaxGlhVxD0J9Ar+2jw7xEux1WnsMXQ21G3dQ8PElY3t2GyZJqL8LsGHC4a/DuFCB6qv1l8jXmGF35RzYHaH6P+rEKpGchx9tz4paFeDMcxPnVP8NExjyKg6orsvfCV4uAvtClbJlpHAPQyg6Qeqc="
+
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
    - echo $JAVA_HOME
+   - openssl aes-256-cbc -K $encrypted_bc9ca2727373_key -iv $encrypted_bc9ca2727373_iv -in seckey.asc.enc -out .\\seckey.asc -d
+   - gpg --allow-secret-key-import --import .\\seckey.asc
+
 
 os:
 - linux
@@ -30,6 +39,11 @@ install: true
 script: mvn clean verify
 # NOTE: Following line can be introduced later
 #after_success: mvn gpg:sign site deploy:deploy assembly:single
+#after_success: mvn gpg:sign deploy:deploy --settings ~/settings.xml
+
+deploy:
+  provider: script
+  script: mvn gpg:sign deploy:deploy --settings ~/settings.xml
 
 # NOTE: Following line can be introduced later
 #deploy:
