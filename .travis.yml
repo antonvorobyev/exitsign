@@ -12,8 +12,8 @@ env:
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
    - echo $JAVA_HOME
-   - echo $SECKEY_PASSWORD | gpg seckey.asc.gpg
-   - gpg --allow-secret-key-import --import .\\seckey.asc
+   - gpg --yes --batch --passphrase=$SECKEY_PASSWORD seckey.asc.gpg
+   - gpg --allow-secret-key-import --import seckey.asc
 
 
 os:
