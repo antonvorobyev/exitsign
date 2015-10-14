@@ -19,4 +19,23 @@
 
     </servers>
 
+    <profiles>
+
+        <profile>
+
+            <id>custom</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <gpg.defaultKeyring>false</gpg.defaultKeyring>
+                <gpg.secretKeyring>../antonvorobyev/exitsign/secring.gpg</gpg.secretKeyring>
+            </properties>
+
+        </profile>
+
+    </profiles>
+
 </settings>
