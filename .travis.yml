@@ -43,7 +43,7 @@ script: mvn clean verify
 
 deploy:
   provider: script
-  script: ls ./target; mvn gpg:sign deploy:deploy --settings ./settings.xml
+  script: tree; mvn gpg:sign deploy:deploy --settings ./settings.xml
 
 # NOTE: Following line can be introduced later
 #deploy:
