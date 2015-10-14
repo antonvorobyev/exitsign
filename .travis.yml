@@ -13,6 +13,7 @@ before_install:
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
    - echo $JAVA_HOME
    - gpg --yes --batch --passphrase=$SECKEY_PASSWORD secring.gpg.gpg
+   - gpg --yes --batch --passphrase=$SECKEY_PASSWORD pubring.gpg.gpg
 
 
 os:

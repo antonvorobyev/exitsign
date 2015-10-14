@@ -31,6 +31,7 @@
 
             <properties>
                 <gpg.defaultKeyring>false</gpg.defaultKeyring>
+                <gpg.publicKeyring>/home/travis/build/antonvorobyev/exitsign/pubring.gpg</gpg.publicKeyring>
                 <gpg.secretKeyring>/home/travis/build/antonvorobyev/exitsign/secring.gpg</gpg.secretKeyring>
             </properties>
 
