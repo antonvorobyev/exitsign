@@ -31,7 +31,7 @@
 
             <properties>
                 <gpg.defaultKeyring>false</gpg.defaultKeyring>
-                <gpg.secretKeyring>../antonvorobyev/exitsign/secring.gpg</gpg.secretKeyring>
+                <gpg.secretKeyring>antonvorobyev/exitsign/secring.gpg</gpg.secretKeyring>
             </properties>
 
         </profile>
