@@ -43,7 +43,8 @@ script: mvn clean verify
 
 deploy:
   provider: script
-  script: ls; mvn gpg:sign deploy:deploy --settings ./settings.xml
+  script: mvn gpg:sign deploy:deploy --settings ./settings.xml
+  skip_cleanup: true
 
 # NOTE: Following line can be introduced later
 #deploy:
