@@ -38,4 +38,8 @@
 
     </profiles>
 
+    <activeProfiles>
+        <activeProfile>custom</activeProfile>
+    </activeProfiles>
+
 </settings>
