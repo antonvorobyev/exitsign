@@ -16,15 +16,15 @@ before_install:
    - gpg --yes --batch --passphrase=$SECKEY_PASSWORD pubring.gpg.gpg
 
 
-os:
-- linux
-- osx
+#os:
+#- linux
+#- osx
 
-matrix:
-  fast_finish: true
-  include:
-    - os: linux
-      jdk: oraclejdk8
+#matrix:
+#  fast_finish: true
+#  include:
+#    - os: linux
+#      jdk: oraclejdk8
 
 branches:
   only:
@@ -42,10 +42,10 @@ script: mvn clean verify --settings ./settings.xml
 #after_success: mvn gpg:sign site deploy:deploy assembly:single
 #after_success: mvn gpg:sign deploy:deploy --settings ~/settings.xml
 
-deploy:
-  provider: script
-  script: mvn install:install deploy:deploy --settings ./settings.xml
-  skip_cleanup: true
+#deploy:
+#  provider: script
+#  script: mvn deploy:deploy --settings ./settings.xml
+#  skip_cleanup: true
 
 # NOTE: Following line can be introduced later
 #deploy:
