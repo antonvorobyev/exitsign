@@ -44,7 +44,7 @@ script: mvn clean verify --settings ./settings.xml
 
 deploy:
   provider: script
-  script: mvn deploy:deploy --settings ./settings.xml
+  script: mvn install:install deploy:deploy --settings ./settings.xml
   skip_cleanup: true
 
 # NOTE: Following line can be introduced later
