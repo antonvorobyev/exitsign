@@ -33,19 +33,8 @@ public final class ExitStatus {
     public static final int SUCCESS = 0;
 
     /**
-     * Exit code returned when execution finishes successfully, synonym of SUCCESS
-     */
-    public static final int OK = 0;
-
-    /**
      * Exit code returned when execution finishes failingly
      */
     public static final int FAILURE = 1;
-
-    /**
-     * Exit code returned when execution finishes failingly, synonym of FAILURE
-     */
-    public static final int BAD = 1;
-
 
 }
