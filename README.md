@@ -16,3 +16,8 @@ Now our build status for master [![Build Status](https://travis-ci.org/antonvoro
 ## Related Resource
 
 All bookmarks to related resources are collected at [Delicious](https://delicious.com/anton.vorobyev/exitsign).
+
+## Copyright and License
+ 
+Code copyright 2015 Anton Vorobyev. Code released under 
+[Apache License, Version 2.0](https://github.com/antonvorobyev/exitsign/blob/master/LICENSE) 
