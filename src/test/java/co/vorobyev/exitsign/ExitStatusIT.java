@@ -1,15 +1,20 @@
 /*
 Copyright 2015 Anton Vorobyev
 Licensed under the Apache License, Version 2.0 (the "License");
+
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
+
     http://www.apache.org/licenses/LICENSE-2.0
+
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
 */
+
 package co.vorobyev.exitsign;
 
 
@@ -17,16 +22,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-/** imports statically exit statuses */
 import java.util.Arrays;
 
-import static co.vorobyev.exitsign.ExitStatus.*;
+/** imports statically exit statuses */
+import static co.vorobyev.exitsign.PrimitiveExitStatus.*;
 
 /**
  * Integration test as example demonstrating exit status usage.
  *
  * @since 0.1
- *
  * @author <a href="http://vorobyev.co">Anton Vorobyev</a>
  *
  */
@@ -54,10 +58,7 @@ public class ExitStatusIT {
          * @return true if arguments is valid else false.
          */
         private static boolean isValid(String[] args) {
-            if (Arrays.equals(args, validArgs))
-                return true;
-            else
-                return false;
+            return Arrays.equals(args, validArgs);
         }
 
         /**
@@ -66,14 +67,14 @@ public class ExitStatusIT {
          * @param args app arguments.
          */
         public static void main(String... args) {
-            int exitStatus;
+            ExitStatus exitStatus;
 
             if (isValid(args))
                 exitStatus = SUCCESS;
             else
                 exitStatus = FAILURE;
 
-            System.exit(exitStatus);
+            System.exit(exitStatus.code());
         }
 
     }
@@ -81,13 +82,13 @@ public class ExitStatusIT {
 
     @Test
     public void appShouldExitSuccessfulyWhenValidArgs() throws Exception {
-        exit.expectSystemExitWithStatus(SUCCESS);
+        exit.expectSystemExitWithStatus(SUCCESS.code());
         App.main(validArgs);
     }
 
     @Test
     public void appShouldExitFailureWhenInvalidArgs() throws Exception {
-        exit.expectSystemExitWithStatus(FAILURE);
+        exit.expectSystemExitWithStatus(FAILURE.code());
         App.main(invalidArgs);
     }
 
