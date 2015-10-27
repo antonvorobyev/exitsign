@@ -25,7 +25,7 @@ import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 import java.util.Arrays;
 
 /** imports statically exit statuses */
-import static co.vorobyev.exitsign.PrimitiveExitStatus.*;
+import static co.vorobyev.exitsign.StandardExitStatus.*;
 
 /**
  * Integration test as example demonstrating exit status usage.

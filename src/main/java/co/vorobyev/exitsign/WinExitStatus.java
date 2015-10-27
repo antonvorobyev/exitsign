@@ -21,331 +21,639 @@ package co.vorobyev.exitsign;
  * Enumeration class collecting exit statuses peculiar to
  * Windows software.
  *
- * {@see http://msdn.microsoft.com/en-us/library/ms681381(v=vs.85).aspx}
+ * <p>
+ * In fact it is a wrapper-collector of default ExitStatus implementation.
+ *</p>
+ *
+ * <p>
+ * It is is mirror of constants from {@code sysexits.h}.
+ *</p>
  *
  * @author <a href="http://vorobyev.co">Anton Vorobyev</a>
  * @since 0.1
+ *
+ * @see <a href="http://msdn.microsoft.com/en-us/library/ms681381(v=vs.85).aspx">Windows Error Codes</a>
  */
-public enum WinExitStatus implements ExitStatus {
+public class WinExitStatus extends ExitStatus {
 
-    /** Successful termination. */
-    SUCCESS(0, "The operation completed successfully", ""),
+    /**
+     * Successful termination.
+     */
+    public static final ExitStatus SUCCESS;
 
-    /** Incorrect function. */
-    INVALID_FUNCTION(1, "Incorrect function", ""),
+    /**
+     * Incorrect function.
+     */
+    public static final ExitStatus INVALID_FUNCTION;
 
-    /** The system cannot find the file specified. */
-    FILE_NOT_FOUND(2, "The system cannot find the file specified", ""),
+    /**
+     * The system cannot find the file specified.
+     */
+    public static final ExitStatus FILE_NOT_FOUND;
 
-    /** The system cannot find the path specified. */
-    PATH_NOT_FOUND(3, "The system cannot find the path specified", ""),
+    /**
+     * The system cannot find the path specified.
+     */
+    public static final ExitStatus PATH_NOT_FOUND;
 
-    /** The system cannot open the file. */
-    TOO_MANY_OPEN_FILES(4, "The system cannot open the file", ""),
+    /**
+     * The system cannot open the file.
+     */
+    public static final ExitStatus TOO_MANY_OPEN_FILES;
 
-    /** Access is denied. */
-    ACCESS_DENIED(5, "Access is denied", ""),
+    /**
+     * Access is denied.
+     */
+    public static final ExitStatus ACCESS_DENIED;
 
-    /** The handle is invalid. */
-    INVALID_HANDLE(6, "The handle is invalid", ""),
+    /**
+     * The handle is invalid.
+     */
+    public static final ExitStatus INVALID_HANDLE;
 
-    /** The storage control blocks were destroyed. */
-    ARENA_TRASHED(7, "The storage control blocks were destroyed", ""),
+    /**
+     * The storage control blocks were destroyed.
+     */
+    public static final ExitStatus ARENA_TRASHED;
 
-    /** Not enough storage is available to process this command. */
-    NOT_ENOUGH_MEMORY(8, "Not enough storage is available to process this command", ""),
+    /**
+     * Not enough storage is available to process this command.
+     */
+    public static final ExitStatus NOT_ENOUGH_MEMORY;
 
-    /** The storage control block address is invalid. */
-    INVALID_BLOCK(9, "The storage control block address is invalid", ""),
+    /**
+     * The storage control block address is invalid.
+     */
+    public static final ExitStatus INVALID_BLOCK;
 
-    /** The environment is incorrect. */
-    BAD_ENVIRONMENT(10, "The environment is incorrect", ""),
+    /**
+     * The environment is incorrect.
+     */
+    public static final ExitStatus BAD_ENVIRONMENT;
 
-    /** An attempt was made to load a program with an incorrect format. */
-    BAD_FORMAT(11, "An attempt was made to load a program with an incorrect format", ""),
+    /**
+     * An attempt was made to load a program with an incorrect format.
+     */
+    public static final ExitStatus BAD_FORMAT;
 
-    /** The access code is invalid. */
-    INVALID_ACCESS(12, "The access code is invalid", ""),
+    /**
+     * The access code is invalid.
+     */
+    public static final ExitStatus INVALID_ACCESS;
 
-    /** The data is invalid. */
-    INVALID_DATA(13, "The data is invalid", ""),
+    /**
+     * The data is invalid.
+     */
+    public static final ExitStatus INVALID_DATA;
 
-    /** Not enough storage is available to complete this operation. */
-    OUTOFMEMORY(14, "Not enough storage is available to complete this operation", ""),
+    /**
+     * Not enough storage is available to complete this operation.
+     */
+    public static final ExitStatus OUTOFMEMORY;
 
-    /** The system cannot find the drive specified. */
-    INVALID_DRIVE(15, "The system cannot find the drive specified", ""),
+    /**
+     * The system cannot find the drive specified.
+     */
+    public static final ExitStatus INVALID_DRIVE;
 
-    /** The directory cannot be removed. */
-    CURRENT_DIRECTORY(16, "The directory cannot be removed", ""),
+    /**
+     * The directory cannot be removed.
+     */
+    public static final ExitStatus CURRENT_DIRECTORY;
 
-    /** The system cannot move the file to a different disk drive. */
-    NOT_SAME_DEVICE(17, "The system cannot move the file to a different disk drive", ""),
+    /**
+     * The system cannot move the file to a different disk drive.
+     */
+    public static final ExitStatus NOT_SAME_DEVICE;
 
-    /** There are no more files. */
-    NO_MORE_FILES(18, "There are no more files", ""),
+    /**
+     * There are no more files.
+     */
+    public static final ExitStatus NO_MORE_FILES;
 
-    /** The media is write protected. */
-    WRITE_PROTECT(19, "The media is write protected", ""),
+    /**
+     * The media is write protected.
+     */
+    public static final ExitStatus WRITE_PROTECT;
 
-    /** The system cannot find the device specified. */
-    BAD_UNIT(20, "The system cannot find the device specified", ""),
+    /**
+     * The system cannot find the device specified.
+     */
+    public static final ExitStatus BAD_UNIT;
 
-    /** The device is not ready. */
-    NOT_READY(21, "The device is not ready", ""),
+    /**
+     * The device is not ready.
+     */
+    public static final ExitStatus NOT_READY;
 
-    /** The device does not recognize the command. */
-    BAD_COMMAND(22, "The device does not recognize the command", ""),
+    /**
+     * The device does not recognize the command.
+     */
+    public static final ExitStatus BAD_COMMAND;
 
-    /** Data error (cyclic redundancy check). */
-    CRC(23, "Data error (cyclic redundancy check)", ""),
+    /**
+     * Data error (cyclic redundancy check).
+     */
+    public static final ExitStatus CRC;
 
-    /** The program issued a command but the command length is incorrect. */
-    BAD_LENGTH(24, "The program issued a command but the command length is incorrect", ""),
+    /**
+     * The program issued a command but the command length is incorrect.
+     */
+    public static final ExitStatus BAD_LENGTH;
 
-    /** The drive cannot locate a specific area or track on the disk. */
-    SEEK(25, "The drive cannot locate a specific area or track on the disk", ""),
+    /**
+     * The drive cannot locate a specific area or track on the disk.
+     */
+    public static final ExitStatus SEEK;
 
-    /** The specified disk or diskette cannot be accessed. */
-    NOT_DOS_DISK(26, "The specified disk or diskette cannot be accessed", ""),
+    /**
+     * The specified disk or diskette cannot be accessed.
+     */
+    public static final ExitStatus NOT_DOS_DISK;
 
-    /** The drive cannot find the sector requested. */
-    SECTOR_NOT_FOUND(27, "The drive cannot find the sector requested", ""),
+    /**
+     * The drive cannot find the sector requested.
+     */
+    public static final ExitStatus SECTOR_NOT_FOUND;
 
-    /** The printer is out of paper. */
-    OUT_OF_PAPER(28, "The printer is out of paper", ""),
+    /**
+     * The printer is out of paper.
+     */
+    public static final ExitStatus OUT_OF_PAPER;
 
-    /** The system cannot write to the specified device. */
-    WRITE_FAULT(29, "The system cannot write to the specified device", ""),
+    /**
+     * The system cannot write to the specified device.
+     */
+    public static final ExitStatus WRITE_FAULT;
 
-    /** The system cannot read from the specified device. */
-    READ_FAULT(30, "The system cannot read from the specified device", ""),
+    /**
+     * The system cannot read from the specified device.
+     */
+    public static final ExitStatus READ_FAULT;
 
-    /** A device attached to the system is not functioning. */
-    GEN_FAILURE(31, "A device attached to the system is not functioning", ""),
+    /**
+     * A device attached to the system is not functioning.
+     */
+    public static final ExitStatus GEN_FAILURE;
 
-    /** The process cannot access the file because it is being used by another process. */
-    SHARING_VIOLATION(32, "The process cannot access the file because it is being used by another process", ""),
+    /**
+     * The process cannot access the file because it is being used by another process.
+     */
+    public static final ExitStatus SHARING_VIOLATION;
 
-    /** The process cannot access the file because another process has locked a portion of the file. */
-    LOCK_VIOLATION(33, "The process cannot access the file because another process has locked a portion of the file", ""),
+    /**
+     * The process cannot access the file because another process has locked a portion of the file.
+     */
+    public static final ExitStatus LOCK_VIOLATION;
 
-    /** The wrong diskette is in the drive. */
-    WRONG_DISK(34, "The wrong diskette is in the drive", ""),
+    /**
+     * The wrong diskette is in the drive.
+     */
+    public static final ExitStatus WRONG_DISK;
 
-    /** Too many files opened for sharing. */
-    SHARING_BUFFER_EXCEEDED(36, "Too many files opened for sharing", ""),
+    /**
+     * Too many files opened for sharing.
+     */
+    public static final ExitStatus SHARING_BUFFER_EXCEEDED;
 
-    /** Reached the end of the file .*/
-    HANDLE_EOF(38, "Reached the end of the file", ""),
+    /**
+     * Reached the end of the file .
+     */
+    public static final ExitStatus HANDLE_EOF;
 
-    /** The disk is full. */
-    HANDLE_DISK_FULL(39, "The disk is full", ""),
+    /**
+     * The disk is full.
+     */
+    public static final ExitStatus HANDLE_DISK_FULL;
 
-    /** The request is not supported. */
-    NOT_SUPPORTED(50, "The request is not supported", ""),
+    /**
+     * The request is not supported.
+     */
+    public static final ExitStatus NOT_SUPPORTED;
 
-    /** Windows cannot find the network path. */
-    REM_NOT_LIST(51, "Windows cannot find the network path", ""),
+    /**
+     * Windows cannot find the network path.
+     */
+    public static final ExitStatus REM_NOT_LIST;
 
-    /** You were not connected because a duplicate name exists on the network. */
-    DUP_NAME(52, "You were not connected because a duplicate name exists on the network", ""),
+    /**
+     * You were not connected because a duplicate name exists on the network.
+     */
+    public static final ExitStatus DUP_NAME;
 
-    /** The network path was not found. */
-    BAD_NETPATH(53, "The network path was not found", ""),
+    /**
+     * The network path was not found.
+     */
+    public static final ExitStatus BAD_NETPATH;
 
-    /** The network is busy. */
-    NETWORK_BUSY(54, "The network is busy", ""),
+    /**
+     * The network is busy.
+     */
+    public static final ExitStatus NETWORK_BUSY;
 
-    /** The specified network resource or device is no longer available. */
-    DEV_NOT_EXIST(55, "The specified network resource or device is no longer available", ""),
+    /**
+     * The specified network resource or device is no longer available.
+     */
+    public static final ExitStatus DEV_NOT_EXIST;
 
-    /** The network BIOS command limit has been reached. */
-    TOO_MANY_CMDS(56, "The network BIOS command limit has been reached", ""),
+    /**
+     * The network BIOS command limit has been reached.
+     */
+    public static final ExitStatus TOO_MANY_CMDS;
 
-    /** A network adapter hardware error occurred. */
-    ADAP_HDW_ERR(57, "A network adapter hardware error occurred", ""),
+    /**
+     * A network adapter hardware error occurred.
+     */
+    public static final ExitStatus ADAP_HDW_ERR;
 
-    /** The specified server cannot perform the requested operation. */
-    BAD_NET_RESP(58, "The specified server cannot perform the requested operation", ""),
+    /**
+     * The specified server cannot perform the requested operation.
+     */
+    public static final ExitStatus BAD_NET_RESP;
 
-    /** An unexpected network error occurred. */
-    UNEXP_NET_ERR(59, "An unexpected network error occurred", ""),
+    /**
+     * An unexpected network error occurred.
+     */
+    public static final ExitStatus UNEXP_NET_ERR;
 
-    /** The remote adapter is not compatible. */
-    BAD_REM_ADAP(60, "The remote adapter is not compatible", ""),
+    /**
+     * The remote adapter is not compatible.
+     */
+    public static final ExitStatus BAD_REM_ADAP;
 
-    /** The printer queue is full. */
-    PRINTQ_FULL(61, "The printer queue is full", ""),
+    /**
+     * The printer queue is full.
+     */
+    public static final ExitStatus PRINTQ_FULL;
 
-    /** Space to store the file waiting to be printed is not available on the server. */
-    NO_SPOOL_SPACE(62, "Space to store the file waiting to be printed is not available on the server", ""),
+    /**
+     * Space to store the file waiting to be printed is not available on the server.
+     */
+    public static final ExitStatus NO_SPOOL_SPACE;
 
-    /** Your file waiting to be printed was deleted. */
-    PRINT_CANCELLED(63, "Your file waiting to be printed was deleted", ""),
+    /**
+     * Your file waiting to be printed was deleted.
+     */
+    public static final ExitStatus PRINT_CANCELLED;
 
-    /** The specified network name is no longer available. */
-    NETNAME_DELETED(64, "The specified network name is no longer available", ""),
+    /**
+     * The specified network name is no longer available.
+     */
+    public static final ExitStatus NETNAME_DELETED;
 
-    /** Network access is denied. */
-    NETWORK_ACCESS_DENIED(65, "Network access is denied", ""),
+    /**
+     * Network access is denied.
+     */
+    public static final ExitStatus NETWORK_ACCESS_DENIED;
 
-    /** The network resource type is not correct. */
-    BAD_DEV_TYPE(66, "The network resource type is not correct", ""),
+    /**
+     * The network resource type is not correct.
+     */
+    public static final ExitStatus BAD_DEV_TYPE;
 
-    /** The network name cannot be found. */
-    BAD_NET_NAME(67, "The network name cannot be found", ""),
+    /**
+     * The network name cannot be found.
+     */
+    public static final ExitStatus BAD_NET_NAME;
 
-    /** The name limit for the local computer network adapter card was exceeded. */
-    TOO_MANY_NAMES(68, "The name limit for the local computer network adapter card was exceeded", ""),
+    /**
+     * The name limit for the local computer network adapter card was exceeded.
+     */
+    public static final ExitStatus TOO_MANY_NAMES;
 
-    /** The network BIOS session limit was exceeded. */
-    TOO_MANY_SESS(69, "The network BIOS session limit was exceeded", ""),
+    /**
+     * The network BIOS session limit was exceeded.
+     */
+    public static final ExitStatus TOO_MANY_SESS;
 
-    /** The remote server has been paused or is in the process of being started. */
-    SHARING_PAUSED(70, "The remote server has been paused or is in the process of being started", ""),
+    /**
+     * The remote server has been paused or is in the process of being started.
+     */
+    public static final ExitStatus SHARING_PAUSED;
 
     /**
      * No more connections can be made to this remote computer at this time because
      * there are already as many connections as the computer can accept.
-     * */
-    REQ_NOT_ACCEP(71, "No more connections can be made to this remote computer at this time because " +
-            "there are already as many connections as the computer can accept", ""),
+     */
+    public static final ExitStatus REQ_NOT_ACCEP;
 
-    /** The specified printer or disk device has been paused. */
-    REDIR_PAUSED(72, "The specified printer or disk device has been paused", ""),
+    /**
+     * The specified printer or disk device has been paused.
+     */
+    public static final ExitStatus REDIR_PAUSED;
 
-    /** The file exists. */
-    FILE_EXISTS(80, "The file exists", ""),
+    /**
+     * The file exists.
+     */
+    public static final ExitStatus FILE_EXISTS;
 
-    /** The directory or file cannot be created. */
-    CANNOT_MAKE(82, "The directory or file cannot be created", ""),
+    /**
+     * The directory or file cannot be created.
+     */
+    public static final ExitStatus CANNOT_MAKE;
 
-    /** Fail on INT 24. */
-    FAIL_I24(83, "Fail on INT 24", ""),
+    /**
+     * Fail on INT 24.
+     */
+    public static final ExitStatus FAIL_I24;
 
-    /** Storage to process this request is not available. */
-    OUT_OF_STRUCTURES(84, "Storage to process this request is not available", ""),
+    /**
+     * Storage to process this request is not available.
+     */
+    public static final ExitStatus OUT_OF_STRUCTURES;
 
-    /** The local device name is already in use. */
-    ALREADY_ASSIGNED(85, "The local device name is already in use", ""),
+    /**
+     * The local device name is already in use.
+     */
+    public static final ExitStatus ALREADY_ASSIGNED;
 
-    /** The specified network password is not correct. */
-    INVALID_PASSWORD(86, "The specified network password is not correct", ""),
+    /**
+     * The specified network password is not correct.
+     */
+    public static final ExitStatus INVALID_PASSWORD;
 
-    /** The parameter is incorrect. */
-    INVALID_PARAMETER(87, "The parameter is incorrect", ""),
+    /**
+     * The parameter is incorrect.
+     */
+    public static final ExitStatus INVALID_PARAMETER;
 
-    /** A write fault occurred on the network. */
-    NET_WRITE_FAULT(88, "A write fault occurred on the network", ""),
+    /**
+     * A write fault occurred on the network.
+     */
+    public static final ExitStatus NET_WRITE_FAULT;
 
-    /** The system cannot start another process at this time. */
-    NO_PROC_SLOTS(89, "The system cannot start another process at this time", ""),
+    /**
+     * The system cannot start another process at this time.
+     */
+    public static final ExitStatus NO_PROC_SLOTS;
 
-    /** Cannot create another system semaphore. */
-    TOO_MANY_SEMAPHORES(100, "Cannot create another system semaphore", ""),
+    /**
+     * Cannot create another system semaphore.
+     */
+    public static final ExitStatus TOO_MANY_SEMAPHORES;
 
-    /** The exclusive semaphore is owned by another process. */
-    EXCL_SEM_ALREADY_OWNED(101, "The exclusive semaphore is owned by another process", ""),
+    /**
+     * The exclusive semaphore is owned by another process.
+     */
+    public static final ExitStatus EXCL_SEM_ALREADY_OWNED;
 
-    /** The semaphore is set and cannot be closed. */
-    SEM_IS_SET(102, "The semaphore is set and cannot be closed", ""),
+    /**
+     * The semaphore is set and cannot be closed.
+     */
+    public static final ExitStatus SEM_IS_SET;
 
-    /** The semaphore cannot be set again. */
-    TOO_MANY_SEM_REQUESTS(103, "The semaphore cannot be set again", ""),
+    /**
+     * The semaphore cannot be set again.
+     */
+    public static final ExitStatus TOO_MANY_SEM_REQUESTS;
 
-    /** Cannot request exclusive semaphores at interrupt time. */
-    INVALID_AT_INTERRUPT_TIME(104, "Cannot request exclusive semaphores at interrupt time", ""),
+    /**
+     * Cannot request exclusive semaphores at interrupt time.
+     */
+    public static final ExitStatus INVALID_AT_INTERRUPT_TIME;
 
-    /** The previous ownership of this semaphore has ended. */
-    SEM_OWNER_DIED(105, "The previous ownership of this semaphore has ended", ""),
+    /**
+     * The previous ownership of this semaphore has ended.
+     */
+    public static final ExitStatus SEM_OWNER_DIED;
 
-    /** Insert the diskette for drive. */
-    SEM_USER_LIMIT(106, "Insert the diskette for drive", ""),
+    /**
+     * Insert the diskette for drive.
+     */
+    public static final ExitStatus SEM_USER_LIMIT;
 
-    /** The program stopped because an alternate diskette was not inserted. */
-    DISK_CHANGE(107, "The program stopped because an alternate diskette was not inserted", ""),
+    /**
+     * The program stopped because an alternate diskette was not inserted.
+     */
+    public static final ExitStatus DISK_CHANGE;
 
-    /** The disk is in use or locked by another process. */
-    DRIVE_LOCKED(108, "The disk is in use or locked by another process", ""),
+    /**
+     * The disk is in use or locked by another process.
+     */
+    public static final ExitStatus DRIVE_LOCKED;
 
-    /** The pipe has been ended. */
-    BROKEN_PIPE(109, "The pipe has been ended", ""),
+    /**
+     * The pipe has been ended.
+     */
+    public static final ExitStatus BROKEN_PIPE;
 
-    /** The system cannot open the device or file specified. */
-    OPEN_FAILED(110, "The system cannot open the device or file specified", ""),
+    /**
+     * The system cannot open the device or file specified.
+     */
+    public static final ExitStatus OPEN_FAILED;
 
-    /** The file name is too long. */
-    BUFFER_OVERFLOW(111, "The file name is too long", ""),
+    /**
+     * The file name is too long.
+     */
+    public static final ExitStatus BUFFER_OVERFLOW;
 
-    /** There is not enough space on the disk. */
-    DISK_FULL(112, "There is not enough space on the disk", ""),
+    /**
+     * There is not enough space on the disk.
+     */
+    public static final ExitStatus DISK_FULL;
 
-    /** No more internal file identifiers available. */
-    NO_MORE_SEARCH_HANDLES(113, "No more internal file identifiers available", ""),
+    /**
+     * No more internal file identifiers available.
+     */
+    public static final ExitStatus NO_MORE_SEARCH_HANDLES;
 
-    /** The target internal file identifier is incorrect. */
-    INVALID_TARGET_HANDLE(114, "The target internal file identifier is incorrect", ""),
+    /**
+     * The target internal file identifier is incorrect.
+     */
+    public static final ExitStatus INVALID_TARGET_HANDLE;
 
-    /** The IOCTL call made by the application program is not correct. */
-    INVALID_CATEGORY(117, "The IOCTL call made by the application program is not correct", ""),
+    /**
+     * The IOCTL call made by the application program is not correct.
+     */
+    public static final ExitStatus INVALID_CATEGORY;
 
-    /** The verify-on-write switch parameter value is not correct. */
-    INVALID_VERIFY_SWITCH(118, "The verify-on-write switch parameter value is not correct", ""),
+    /**
+     * The verify-on-write switch parameter value is not correct.
+     */
+    public static final ExitStatus INVALID_VERIFY_SWITCH;
 
-    /** The system does not support the command requested. */
-    BAD_DRIVER_LEVEL(119, "The system does not support the command requested", ""),
+    /**
+     * The system does not support the command requested.
+     */
+    public static final ExitStatus BAD_DRIVER_LEVEL;
 
-    /** This function is not supported on this system. */
-    CALL_NOT_IMPLEMENTED(120, "This function is not supported on this system", ""),
+    /**
+     * This function is not supported on this system.
+     */
+    public static final ExitStatus CALL_NOT_IMPLEMENTED;
 
-    /** The semaphore timeout period has expired. */
-    SEM_TIMEOUT(121, "The semaphore timeout period has expired", ""),
+    /**
+     * The semaphore timeout period has expired.
+     */
+    public static final ExitStatus SEM_TIMEOUT;
 
-    /** The data area passed to a system call is too small. */
-    INSUFFICIENT_BUFFER(122, "The data area passed to a system call is too small", ""),
+    /**
+     * The data area passed to a system call is too small.
+     */
+    public static final ExitStatus INSUFFICIENT_BUFFER;
 
-    /** The filename, directory name, or volume label syntax is incorrect. */
-    INVALID_NAME(123, "The filename, directory name, or volume label syntax is incorrect", ""),
+    /**
+     * The filename, directory name, or volume label syntax is incorrect.
+     */
+    public static final ExitStatus INVALID_NAME;
 
-    /** The system call level is not correct. */
-    INVALID_LEVEL(124, "The system call level is not correct", ""),
+    /**
+     * The system call level is not correct.
+     */
+    public static final ExitStatus INVALID_LEVEL;
 
-    /** The disk has no volume label. */
-    NO_VOLUME_LABEL(125, "The disk has no volume label", ""),
+    /**
+     * The disk has no volume label.
+     */
+    public static final ExitStatus NO_VOLUME_LABEL;
 
-    /** The specified module could not be found. */
-    MOD_NOT_FOUND(126, "The specified module could not be found", ""),
+    /**
+     * The specified module could not be found.
+     */
+    public static final ExitStatus MOD_NOT_FOUND;
 
-    /** The specified procedure could not be found. */
-    PROC_NOT_FOUND(127, "The specified procedure could not be found", ""),
+    /**
+     * The specified procedure could not be found.
+     */
+    public static final ExitStatus PROC_NOT_FOUND;
 
-    /** There are no child processes to wait for. */
-    WAIT_NO_CHILDREN(128, "There are no child processes to wait for", "");
+    /**
+     * There are no child processes to wait for.
+     */
+    public static final ExitStatus WAIT_NO_CHILDREN;
 
-    /** Numeric code of exit status. */
-    private final int code;
+    static {
+        ExitStatusBuilder builder = ExitStatusBuilderFactory.createBuilder();
 
-    /** Meaning of exit status. */
-    private final String meaning;
-
-    /** Comment on exit status. */
-    private final String comment;
-
-
-    WinExitStatus(int code, String meaning, String comment) {
-        this.code = code;
-        this.meaning = meaning;
-        this.comment = comment;
+        SUCCESS = builder.code(0).meaning("The operation completed successfully").build();
+        INVALID_FUNCTION = builder.code(1).meaning("Incorrect function").build();
+        FILE_NOT_FOUND = builder.code(2).meaning("The system cannot find the file specified").build();
+        PATH_NOT_FOUND = builder.code(3).meaning("The system cannot find the path specified").build();
+        TOO_MANY_OPEN_FILES = builder.code(4).meaning("The system cannot open the file").build();
+        ACCESS_DENIED = builder.code(5).meaning("Access is denied").build();
+        INVALID_HANDLE = builder.code(5).meaning("The handle is invalid").build();
+        ARENA_TRASHED = builder.code(7).meaning("The storage control blocks were destroyed").build();
+        NOT_ENOUGH_MEMORY = builder.code(8).meaning("Not enough storage is available to process this command").build();
+        INVALID_BLOCK = builder.code(9).meaning("The storage control block address is invalid").build();
+        BAD_ENVIRONMENT = builder.code(10).meaning("The environment is incorrect").build();
+        BAD_FORMAT = builder.code(10).meaning("An attempt was made to load a program with an incorrect format").build();
+        INVALID_ACCESS = builder.code(12).meaning("The access code is invalid").build();
+        INVALID_DATA = builder.code(13).meaning("The data is invalid").build();
+        OUTOFMEMORY = builder.code(14).meaning("Not enough storage is available to complete this operation").build();
+        INVALID_DRIVE = builder.code(15).meaning("The system cannot find the drive specified").build();
+        CURRENT_DIRECTORY = builder.code(16).meaning("The directory cannot be removed").build();
+        NOT_SAME_DEVICE = builder.code(17).meaning("The system cannot move the file to a different disk drive").build();
+        NO_MORE_FILES = builder.code(18).meaning("There are no more files").build();
+        WRITE_PROTECT = builder.code(19).meaning("The media is write protected").build();
+        BAD_UNIT = builder.code(20).meaning("The system cannot find the device specified").build();
+        NOT_READY = builder.code(21).meaning("The device is not ready").build();
+        BAD_COMMAND = builder.code(22).meaning("The device does not recognize the command").build();
+        CRC = builder.code(23).meaning("Data error (cyclic redundancy check)").build();
+        BAD_LENGTH = builder.code(24).meaning("The program issued a command but the command length is incorrect").build();
+        SEEK = builder.code(25).meaning("The drive cannot locate a specific area or track on the disk").build();
+        NOT_DOS_DISK = builder.code(26).meaning("The specified disk or diskette cannot be accessed").build();
+        SECTOR_NOT_FOUND = builder.code(27).meaning("The drive cannot find the sector requested").build();
+        OUT_OF_PAPER = builder.code(28).meaning("The printer is out of paper").build();
+        WRITE_FAULT = builder.code(29).meaning("The system cannot write to the specified device").build();
+        READ_FAULT = builder.code(30).meaning("The system cannot read from the specified device").build();
+        GEN_FAILURE = builder.code(31).meaning("A device attached to the system is not functioning").build();
+        SHARING_VIOLATION = builder.code(32).meaning("The process cannot access the file because it is being used by another process").build();
+        LOCK_VIOLATION = builder.code(33).meaning("The process cannot access the file because another process has locked a portion of the file").build();
+        WRONG_DISK = builder.code(34).meaning("The wrong diskette is in the drive").build();
+        SHARING_BUFFER_EXCEEDED = builder.code(36).meaning("Too many files opened for sharing").build();
+        HANDLE_EOF = builder.code(38).meaning("Reached the end of the file").build();
+        HANDLE_DISK_FULL = builder.code(39).meaning("The disk is full").build();
+        NOT_SUPPORTED = builder.code(50).meaning("The request is not supported").build();
+        REM_NOT_LIST = builder.code(51).meaning("Windows cannot find the network path").build();
+        DUP_NAME = builder.code(52).meaning("You were not connected because a duplicate name exists on the network").build();
+        BAD_NETPATH = builder.code(53).meaning("The network path was not found").build();
+        NETWORK_BUSY = builder.code(54).meaning("The network is busy").build();
+        DEV_NOT_EXIST = builder.code(55).meaning("The specified network resource or device is no longer available").build();
+        TOO_MANY_CMDS = builder.code(56).meaning("The network BIOS command limit has been reached").build();
+        ADAP_HDW_ERR = builder.code(57).meaning("A network adapter hardware error occurred").build();
+        BAD_NET_RESP = builder.code(58).meaning("The specified server cannot perform the requested operation").build();
+        UNEXP_NET_ERR = builder.code(59).meaning("An unexpected network error occurred").build();
+        BAD_REM_ADAP = builder.code(60).meaning("The remote adapter is not compatible").build();
+        PRINTQ_FULL = builder.code(61).meaning("The printer queue is full").build();
+        NO_SPOOL_SPACE = builder.code(62).meaning("Space to store the file waiting to be printed is not available on the server").build();
+        PRINT_CANCELLED = builder.code(63).meaning("Your file waiting to be printed was deleted").build();
+        NETNAME_DELETED = builder.code(64).meaning("The specified network name is no longer available").build();
+        NETWORK_ACCESS_DENIED = builder.code(65).meaning("Network access is denied").build();
+        BAD_DEV_TYPE = builder.code(66).meaning("The network resource type is not correct").build();
+        BAD_NET_NAME = builder.code(67).meaning("The network name cannot be found").build();
+        TOO_MANY_NAMES = builder.code(68).meaning("The name limit for the local computer network adapter card was exceeded").build();
+        TOO_MANY_SESS = builder.code(69).meaning("The network BIOS session limit was exceeded").build();
+        SHARING_PAUSED = builder.code(70).meaning("The remote server has been paused or is in the process of being started").build();
+        REQ_NOT_ACCEP = builder.code(71).meaning("No more connections can be made to this remote computer at this time because " +
+                "there are already as many connections as the computer can accept").build();
+        REDIR_PAUSED = builder.code(72).meaning("The specified printer or disk device has been paused").build();
+        FILE_EXISTS = builder.code(80).meaning("The file exists").build();
+        CANNOT_MAKE = builder.code(82).meaning("The directory or file cannot be created").build();
+        FAIL_I24 = builder.code(83).meaning("Fail on INT 24").build();
+        OUT_OF_STRUCTURES = builder.code(84).meaning("Storage to process this request is not available").build();
+        ALREADY_ASSIGNED = builder.code(85).meaning("The local device name is already in use").build();
+        INVALID_PASSWORD = builder.code(86).meaning("The specified network password is not correct").build();
+        INVALID_PARAMETER = builder.code(87).meaning("The parameter is incorrect").build();
+        NET_WRITE_FAULT = builder.code(88).meaning("A write fault occurred on the network").build();
+        NO_PROC_SLOTS = builder.code(89).meaning("The system cannot start another process at this time").build();
+        TOO_MANY_SEMAPHORES = builder.code(100).meaning("Cannot create another system semaphore").build();
+        EXCL_SEM_ALREADY_OWNED = builder.code(101).meaning("The exclusive semaphore is owned by another process").build();
+        SEM_IS_SET = builder.code(102).meaning("The semaphore is set and cannot be closed").build();
+        TOO_MANY_SEM_REQUESTS = builder.code(103).meaning("The semaphore cannot be set again").build();
+        INVALID_AT_INTERRUPT_TIME = builder.code(104).meaning("Cannot request exclusive semaphores at interrupt time").build();
+        SEM_OWNER_DIED = builder.code(105).meaning("The previous ownership of this semaphore has ended").build();
+        SEM_USER_LIMIT = builder.code(106).meaning("Insert the diskette for drive").build();
+        DISK_CHANGE = builder.code(107).meaning("The program stopped because an alternate diskette was not inserted").build();
+        DRIVE_LOCKED = builder.code(108).meaning("The disk is in use or locked by another process").build();
+        BROKEN_PIPE = builder.code(109).meaning("The pipe has been ended").build();
+        OPEN_FAILED = builder.code(110).meaning("The system cannot open the device or file specified").build();
+        BUFFER_OVERFLOW = builder.code(111).meaning("The file name is too long").build();
+        DISK_FULL = builder.code(112).meaning("There is not enough space on the disk").build();
+        NO_MORE_SEARCH_HANDLES = builder.code(113).meaning("No more internal file identifiers available").build();
+        INVALID_TARGET_HANDLE = builder.code(114).meaning("The target internal file identifier is incorrect").build();
+        INVALID_CATEGORY = builder.code(117).meaning("The IOCTL call made by the application program is not correct").build();
+        INVALID_VERIFY_SWITCH = builder.code(118).meaning("The system does not support the command requested").build();
+        BAD_DRIVER_LEVEL = builder.code(119).meaning("The system does not support the command requested").build();
+        CALL_NOT_IMPLEMENTED = builder.code(120).meaning("This function is not supported on this system").build();
+        SEM_TIMEOUT = builder.code(121).meaning("The semaphore timeout period has expired").build();
+        INSUFFICIENT_BUFFER = builder.code(122).meaning("The data area passed to a system call is too small").build();
+        INVALID_NAME = builder.code(123).meaning("The filename, directory name, or volume label syntax is incorrect").build();
+        INVALID_LEVEL = builder.code(124).meaning("The system call level is not correct").build();
+        NO_VOLUME_LABEL = builder.code(125).meaning("The disk has no volume label").build();
+        MOD_NOT_FOUND = builder.code(126).meaning("The specified module could not be found").build();
+        PROC_NOT_FOUND = builder.code(127).meaning("The specified procedure could not be found").build();
+        WAIT_NO_CHILDREN = builder.code(128).meaning("There are no child processes to wait for").build();
     }
 
-    /** {@inheritDoc} */
-    public int code() { return code; }
+    /**
+     * Protected constructor, use on of the static methods to obtain a
+     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
+     */
+    protected WinExitStatus() {
+    }
 
-    /** {@inheritDoc} */
-    public String meaning() { return meaning; }
+    public WinExitStatus(int code) {
+        super(code);
+    }
 
-    /** {@inheritDoc} */
-    public String comment() { return comment; }
+    public WinExitStatus(int code, String meaning) {
+        super(code, meaning);
+    }
+
+    public WinExitStatus(int code, String meaning, String comment) {
+        super(code, meaning, comment);
+    }
+
+    /**
+     * Create a new ExitStatusBuilder for successful exit status, set meaning
+     * description using the supplied value.
+     *
+     * @param meaning the meaning description of exit status
+     * @return a new ExitStatusBuilder
+     */
+    public static ExitStatusBuilder success(String meaning) {
+        ExitStatusBuilder b = fromStatus(SUCCESS).meaning(meaning);
+        return b;
+    }
 
 }
