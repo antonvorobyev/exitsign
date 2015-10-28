@@ -25,124 +25,130 @@ package co.vorobyev.exitsign;
  */
 public abstract class ExitStatus {
 
-    /** Numeric code of exit status. */
-    private int code;
+  /**
+   * Numeric code of exit status.
+   */
+  private int code;
 
-    /** Meaning of exit status. */
-    private String meaning;
+  /**
+   * Meaning of exit status.
+   */
+  private String meaning;
 
-    /** Comment on exit status. */
-    private String comment;
+  /**
+   * Comment on exit status.
+   */
+  private String comment;
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     */
-    protected ExitStatus(){}
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   */
+  protected ExitStatus() {
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     */
-    protected ExitStatus(int code) {
-        this(code, null);
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code a numeric code of the exit status
+   */
+  protected ExitStatus(int code) {
+    this(code, null);
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     * @param meaning a meaning description of the exit status
-     */
-    protected ExitStatus(int code, String meaning) {
-        this(code, meaning, null);
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code    a numeric code of the exit status
+   * @param meaning a meaning description of the exit status
+   */
+  protected ExitStatus(int code, String meaning) {
+    this(code, meaning, null);
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     * @param meaning a meaning description of the exit status
-     * @param comment a commentary on the exit status
-     */
-    protected ExitStatus(int code, String meaning, String comment) {
-        this.code = code;
-        this.meaning = meaning;
-        this.comment = comment;
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code    a numeric code of the exit status
+   * @param meaning a meaning description of the exit status
+   * @param comment a commentary on the exit status
+   */
+  protected ExitStatus(int code, String meaning, String comment) {
+    this.code = code;
+    this.meaning = meaning;
+    this.comment = comment;
+  }
 
-    /**
-     * Get the status code associated with the exit status.
-     *
-     * @return the numeric code of the exit status
-     */
-    public int code() {
-        return code;
-    }
+  /**
+   * Create a new ExitStatusBuilder by performing a shallow copy of an existing ExitStatus.
+   *
+   * @param status a ExitStatus from which the status code, meaning description and commentary will
+   *               be copied
+   * @return a new ExitStatusBuilder
+   */
+  public static ExitStatusBuilder fromStatus(ExitStatus status) {
+    ExitStatusBuilder builder = code(status.code());
+    builder.meaning(status.meaning());
+    builder.comment(status.comment());
 
-    /**
-     * Get the meaning description associated with the exit status.
-     *
-     * @return the meaning description of the exit status
-     */
-    public String meaning() {
-        return meaning;
-    }
+    return builder;
+  }
 
-    /**
-     * Get the commentary associated with the exit status.
-     *
-     * @return the commentary on the exit status
-     */
-    public String comment() {
-        return comment;
-    }
+  /**
+   * Create a new ExitStatusBuilder with supplied status.
+   *
+   * @param status the exit status
+   * @return a new ExitStatusBuilder
+   * @throws IllegalArgumentException if status is null
+   */
+  public static ExitStatusBuilder code(ExitStatus status) {
+    ExitStatusBuilder builder = ExitStatusBuilder.newInstance();
+    builder.code(status);
 
-    /**
-     * Create a new ExitStatusBuilder by performing a shallow copy of an
-     * existing ExitStatus.
-     *
-     * @param status a ExitStatus from which the status code, meaning
-     *               description and commentary will be copied
-     * @return a new ExitStatusBuilder
-     */
-    public static ExitStatusBuilder fromStatus(ExitStatus status) {
-        ExitStatusBuilder b = code(status.code());
-        b.meaning(status.meaning());
-        b.comment(status.comment());
+    return builder;
+  }
 
-        return b;
-    }
+  /**
+   * Create a new ExitStatusBuilder with the supplied code.
+   *
+   * @param code the numeric code of exit status
+   * @return a new ExitStatusBuilder
+   */
+  public static ExitStatusBuilder code(int code) {
+    ExitStatusBuilder builder = ExitStatusBuilder.newInstance();
+    builder.code(code);
 
-    /**
-     * Create a new ExitStatusBuilder with supplied status.
-     *
-     * @param status the exit status
-     * @return a new ExitStatusBuilder
-     * @throws IllegalArgumentException if status is null
-     */
-    public static ExitStatusBuilder code(ExitStatus status) {
-        ExitStatusBuilder b = ExitStatusBuilder.newInstance();
-        b.code(status);
+    return builder;
+  }
 
-        return b;
-    }
+  /**
+   * Get the status code associated with the exit status.
+   *
+   * @return the numeric code of the exit status
+   */
+  public int code() {
+    return code;
+  }
 
-    /**
-     * Create a new ExitStatusBuilder with the supplied code.
-     *
-     * @param code the numeric code of exit status
-     * @return a new ExitStatusBuilder
-     */
-    public static ExitStatusBuilder code(int code) {
-        ExitStatusBuilder b = ExitStatusBuilder.newInstance();
-        b.code(code);
+  /**
+   * Get the meaning description associated with the exit status.
+   *
+   * @return the meaning description of the exit status
+   */
+  public String meaning() {
+    return meaning;
+  }
 
-        return b;
-    }
+  /**
+   * Get the commentary associated with the exit status.
+   *
+   * @return the commentary on the exit status
+   */
+  public String comment() {
+    return comment;
+  }
 
 }

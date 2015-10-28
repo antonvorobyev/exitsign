@@ -1,7 +1,11 @@
 package co.vorobyev.exitsign;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -9,118 +13,117 @@ import org.junit.Test;
 
 public abstract class ExitStatusBuilderTest {
 
-    public static ExitStatus status7;
-    public static ExitStatusBuilder builder;
+  public static ExitStatus status7;
+  public static ExitStatusBuilder builder;
 
-    public abstract ExitStatusBuilder newBuilder();
+  @BeforeClass
+  public static void beforeClass() throws Exception {
+    status7 = new ExitStatusImpl(7, "good fortune", "you are lucky");
+  }
 
-    @BeforeClass
-    public static void beforeClass() throws Exception {
-        status7 = new ExitStatusImpl(7, "good fortune", "you are lucky");
-    }
+  public abstract ExitStatusBuilder newBuilder();
 
-    @Before
-    public void before() {
-        builder = newBuilder();
-    }
+  @Before
+  public void before() {
+    builder = newBuilder();
+  }
 
-    @Test
-    public void newInstanceShouldCreateBuilder() throws Exception {
-        ExitStatusBuilder builder = newBuilder();
+  @Test
+  public void newInstanceShouldCreateBuilder() throws Exception {
+    ExitStatusBuilder builder = newBuilder();
 
-        assertNotNull(builder);
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
-    }
+    assertNotNull(builder);
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithDefaultValuesWhenNoSuppliedParams() throws Exception {
-        ExitStatus status = builder.build();
+  @Test
+  public void buildShouldCreateStatusWithDefaultValuesWhenNoSuppliedParams() throws Exception {
+    ExitStatus status = builder.build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(0, status.code());
-        assertNull(status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(0, status.code());
+    assertNull(status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithSuppliedCode() throws Exception {
-        int code = 14;
+  @Test
+  public void buildShouldCreateStatusWithSuppliedCode() throws Exception {
+    int code = 14;
 
-        ExitStatus status = builder.code(code).build();
+    ExitStatus status = builder.code(code).build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(code, status.code());
-        assertNull(status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(code, status.code());
+    assertNull(status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithSuppliedMeaning() throws Exception {
-        String meaning = "mean";
+  @Test
+  public void buildShouldCreateStatusWithSuppliedMeaning() throws Exception {
+    String meaning = "mean";
 
-        ExitStatus status = builder.meaning(meaning).build();
+    ExitStatus status = builder.meaning(meaning).build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(0, status.code());
-        assertEquals(meaning, status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(0, status.code());
+    assertEquals(meaning, status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithSuppliedComment() throws Exception {
-        String comment = "commentary";
+  @Test
+  public void buildShouldCreateStatusWithSuppliedComment() throws Exception {
+    String comment = "commentary";
 
-        ExitStatus status = builder.comment(comment).build();
+    ExitStatus status = builder.comment(comment).build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(0, status.code());
-        assertNull(status.meaning());
-        assertEquals(comment, status.comment());
-    }
+    assertEquals(0, status.code());
+    assertNull(status.meaning());
+    assertEquals(comment, status.comment());
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithSuppliedCodeFromAnotherStatus() throws Exception {
-        ExitStatus status = builder.code(status7).build();
+  @Test
+  public void buildShouldCreateStatusWithSuppliedCodeFromAnotherStatus() throws Exception {
+    ExitStatus status = builder.code(status7).build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(status7.code(), status.code());
-        assertNull(status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(status7.code(), status.code());
+    assertNull(status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void buildShouldCreateStatusWithSuppliedMeaningFromAnotherStatus() throws Exception {
-        ExitStatus status = builder.meaning(status7).build();
+  @Test
+  public void buildShouldCreateStatusWithSuppliedMeaningFromAnotherStatus() throws Exception {
+    ExitStatus status = builder.meaning(status7).build();
 
-        assertNotNull(status);
+    assertNotNull(status);
 
-        assertEquals(0, status.code());
-        assertEquals(status7.meaning(), status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(0, status.code());
+    assertEquals(status7.meaning(), status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void cloneShould() throws Exception {
-        ExitStatusBuilder cloned = builder.meaning(status7).clone();
+  @Test
+  public void cloneShould() throws Exception {
+    ExitStatusBuilder cloned = builder.meaning(status7).clone();
 
-        assertNotNull(cloned);
+    assertNotNull(cloned);
 
-        assertThat(cloned, instanceOf(ExitStatusBuilder.class));
+    assertThat(cloned, instanceOf(ExitStatusBuilder.class));
 
-        assertNotSame(builder, cloned);
+    assertNotSame(builder, cloned);
 
-        ExitStatus status = cloned.build();
+    ExitStatus status = cloned.build();
 
-        assertEquals(0, status.code());
-        assertEquals(status7.meaning(), status.meaning());
-        assertNull(status.comment());
-    }
-
+    assertEquals(0, status.code());
+    assertEquals(status7.meaning(), status.meaning());
+    assertNull(status.comment());
+  }
 
 
 }

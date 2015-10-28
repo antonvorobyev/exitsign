@@ -12,8 +12,8 @@
    limitations under the License.
  -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -100,8 +100,8 @@
 
         <!-- NOTE: Following lines can be introduced later -->
         <!--<repository>-->
-            <!--<id>ossrh</id>-->
-            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+        <!--<id>ossrh</id>-->
+        <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
         <!--</repository>-->
 
         <snapshotRepository>
@@ -110,9 +110,9 @@
         </snapshotRepository>
 
         <!--<site>-->
-            <!--<id>gh-pages</id>-->
-            <!--<name>Exit Sign Site</name>-->
-            <!--<url>scm:git:ssh://git@github.com/antonvorobyev/exitsign.git</url>-->
+        <!--<id>gh-pages</id>-->
+        <!--<name>Exit Sign Site</name>-->
+        <!--<url>scm:git:ssh://git@github.com/antonvorobyev/exitsign.git</url>-->
         <!--</site>-->
 
     </distributionManagement>
@@ -197,13 +197,13 @@
 
             <!-- NOTE: Following lines can be introduced later -->
             <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>versions-maven-plugin</artifactId>-->
-                <!--<version>2.2</version>-->
+            <!--<groupId>org.codehaus.mojo</groupId>-->
+            <!--<artifactId>versions-maven-plugin</artifactId>-->
+            <!--<version>2.2</version>-->
 
-                <!--<configuration>-->
-                    <!--<generateBackupPoms>false</generateBackupPoms>-->
-                <!--</configuration>-->
+            <!--<configuration>-->
+            <!--<generateBackupPoms>false</generateBackupPoms>-->
+            <!--</configuration>-->
 
             <!--</plugin>-->
 
@@ -257,13 +257,59 @@
                 </configuration>
 
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+
+                <executions>
+
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+
+                        <configuration>
+                            <configLocation>google_checks.xml</configLocation>
+                            <!--<configLocation>checkstyle.xml</configLocation>-->
+                            <headerLocation>header.txt</headerLocation>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <logViolationsToConsole>true</logViolationsToConsole>
+                            <failsOnError>true</failsOnError>
+                        </configuration>
+
+                    </execution>
+
+                </executions>
+
+                <dependencies>
+
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>6.11.2</version>
+                    </dependency>
+
+                </dependencies>
+
             </plugin>
 
         </plugins>
@@ -271,26 +317,63 @@
         <!-- NOTE: Following line can be introduced later -->
         <!--<extensions>-->
 
-            <!--<extension>-->
-                <!--<groupId>org.apache.maven.wagon</groupId>-->
-                <!--<artifactId>wagon-scm</artifactId>-->
-                <!--<version>2.10</version>-->
-            <!--</extension>-->
+        <!--<extension>-->
+        <!--<groupId>org.apache.maven.wagon</groupId>-->
+        <!--<artifactId>wagon-scm</artifactId>-->
+        <!--<version>2.10</version>-->
+        <!--</extension>-->
 
-            <!--<extension>-->
-                <!--<groupId>org.apache.maven.scm</groupId>-->
-                <!--<artifactId>maven-scm-manager-plexus</artifactId>-->
-                <!--<version>1.9.4</version>-->
-            <!--</extension>-->
+        <!--<extension>-->
+        <!--<groupId>org.apache.maven.scm</groupId>-->
+        <!--<artifactId>maven-scm-manager-plexus</artifactId>-->
+        <!--<version>1.9.4</version>-->
+        <!--</extension>-->
 
-            <!--<extension>-->
-                <!--<groupId>org.apache.maven.scm</groupId>-->
-                <!--<artifactId>maven-scm-provider-gitexe</artifactId>-->
-                <!--<version>1.9.4</version>-->
-            <!--</extension>-->
+        <!--<extension>-->
+        <!--<groupId>org.apache.maven.scm</groupId>-->
+        <!--<artifactId>maven-scm-provider-gitexe</artifactId>-->
+        <!--<version>1.9.4</version>-->
+        <!--</extension>-->
 
         <!--</extensions>-->
 
     </build>
+
+    <reporting>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                    <!--<configLocation>checkstyle.xml</configLocation>-->
+                    <headerLocation>header.txt</headerLocation>
+
+                    <failOnViolation>false</failOnViolation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+
+                <reportSets>
+
+                    <reportSet>
+
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+
+                    </reportSet>
+
+                </reportSets>
+
+            </plugin>
+
+        </plugins>
+
+    </reporting>
 
 </project>

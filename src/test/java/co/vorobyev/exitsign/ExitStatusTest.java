@@ -17,99 +17,101 @@ limitations under the License.
 
 package co.vorobyev.exitsign;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
 public abstract class ExitStatusTest {
 
-    public abstract ExitStatus newStatus();
+  public abstract ExitStatus newStatus();
 
-    public abstract ExitStatus newStatus(int code);
+  public abstract ExitStatus newStatus(int code);
 
-    public abstract ExitStatus newStatus(int code, String meaning);
+  public abstract ExitStatus newStatus(int code, String meaning);
 
-    public abstract ExitStatus newStatus(int code, String meaning, String comment);
+  public abstract ExitStatus newStatus(int code, String meaning, String comment);
 
-    @Test
-    public void constructShouldNotInitializeWhenNoParams() {
-        ExitStatus status = newStatus();
+  @Test
+  public void constructShouldNotInitializeWhenNoParams() {
+    ExitStatus status = newStatus();
 
-        assertEquals(0, status.code());
-        assertNull(status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(0, status.code());
+    assertNull(status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void constructShouldInitializeCodeWhenItIsPropogated () {
-        int code = 14;
+  @Test
+  public void constructShouldInitializeCodeWhenItIsPropogated() {
+    int code = 14;
 
-        ExitStatus status = newStatus(code);
+    ExitStatus status = newStatus(code);
 
-        assertEquals(code, status.code());
-        assertNull(status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(code, status.code());
+    assertNull(status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void constructShouldInitializeMeaningWhenItIsPropogated () {
-        int code = 14;
-        String meaning = "mean 14";
+  @Test
+  public void constructShouldInitializeMeaningWhenItIsPropogated() {
+    int code = 14;
+    String meaning = "mean 14";
 
-        ExitStatus status = newStatus(code, meaning);
+    ExitStatus status = newStatus(code, meaning);
 
-        assertEquals(code, status.code());
-        assertEquals(meaning, status.meaning());
-        assertNull(status.comment());
-    }
+    assertEquals(code, status.code());
+    assertEquals(meaning, status.meaning());
+    assertNull(status.comment());
+  }
 
-    @Test
-    public void constructShouldInitializeCommentWhenItIsPropogated () {
-        int code = 14;
-        String meaning = "mean 14";
-        String comment = "comment 14";
+  @Test
+  public void constructShouldInitializeCommentWhenItIsPropogated() {
+    int code = 14;
+    String meaning = "mean 14";
+    String comment = "comment 14";
 
-        ExitStatus status = newStatus(code, meaning, comment);
+    ExitStatus status = newStatus(code, meaning, comment);
 
-        assertEquals(code, status.code());
-        assertEquals(meaning, status.meaning());
-        assertEquals(comment, status.comment());
-    }
+    assertEquals(code, status.code());
+    assertEquals(meaning, status.meaning());
+    assertEquals(comment, status.comment());
+  }
 
-    @Test
-    public void codeShouldCreateBuilderWithSuppliedCodeFromStatus() throws Exception {
-        int code = 14;
-        ExitStatus status = newStatus(code);
+  @Test
+  public void codeShouldCreateBuilderWithSuppliedCodeFromStatus() throws Exception {
+    int code = 14;
+    ExitStatus status = newStatus(code);
 
-        ExitStatusBuilder builder = ExitStatus.code(status);
+    ExitStatusBuilder builder = ExitStatus.code(status);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
-        assertEquals(code, builder.build().code());
-    }
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertEquals(code, builder.build().code());
+  }
 
-    @Test
-    public void codeShouldCreateBuilderWithSuppliedCode() throws Exception {
-        int code = 14;
+  @Test
+  public void codeShouldCreateBuilderWithSuppliedCode() throws Exception {
+    int code = 14;
 
-        ExitStatusBuilder builder = ExitStatus.code(code);
+    ExitStatusBuilder builder = ExitStatus.code(code);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
-        assertEquals(code, builder.build().code());
-    }
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertEquals(code, builder.build().code());
+  }
 
-    @Test
-    public void fromStatusShouldCreateBuilderWithSuppliedParams() throws Exception {
-        int code = 14;
-        String meaning = "mean 14";
-        String comment = "comment 14";
+  @Test
+  public void fromStatusShouldCreateBuilderWithSuppliedParams() throws Exception {
+    int code = 14;
+    String meaning = "mean 14";
+    String comment = "comment 14";
 
-        ExitStatus status = newStatus(code, meaning, comment);
+    ExitStatus status = newStatus(code, meaning, comment);
 
-        ExitStatusBuilder builder = ExitStatus.fromStatus(status);
+    ExitStatusBuilder builder = ExitStatus.fromStatus(status);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
-        assertEquals(code, builder.build().code());
-    }
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertEquals(code, builder.build().code());
+  }
 
 }

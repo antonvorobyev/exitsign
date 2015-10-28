@@ -18,30 +18,28 @@ limitations under the License.
 package co.vorobyev.exitsign;
 
 /**
- * Factory class for internal usages. Creates new instances
- * of ExitStatusBuilder.
+ * Factory class for internal usages. Creates new instances of ExitStatusBuilder.
  *
  * @author <a href="http://vorobyev.co">Anton Vorobyev</a>
  * @since 0.1
  */
 public final class ExitStatusBuilderFactory {
 
-    /**
-     * Private constructor, use this class as utility.
-     */
-    private ExitStatusBuilderFactory() {
-        throw new AssertionError();
-    }
+  /**
+   * Private constructor, use this class as utility.
+   */
+  private ExitStatusBuilderFactory() {
+    throw new AssertionError();
+  }
 
-    /**
-     * Create new instance of {@link ExitStatusBuilder}.
-     *
-     * @return an instance of ExitStatusBuilder
-     */
-    protected static ExitStatusBuilder createBuilder() {
-        return new ExitStatusBuilderImpl();
-    }
-
+  /**
+   * Create new instance of {@link ExitStatusBuilder}.
+   *
+   * @return an instance of ExitStatusBuilder
+   */
+  protected static ExitStatusBuilder createBuilder() {
+    return new ExitStatusBuilderImpl();
+  }
 
 
 }
