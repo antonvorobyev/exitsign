@@ -25,76 +25,75 @@ package co.vorobyev.exitsign;
  */
 public final class ExitStatusBuilderImpl extends ExitStatusBuilder {
 
-    /**
-     * Holder for numeric code of exit status.
-     */
-    private int code;
+  /**
+   * Holder for numeric code of exit status.
+   */
+  private int code;
 
-    /**
-     * Holder for meaning string of exit status.
-     */
-    private String meaning;
+  /**
+   * Holder for meaning string of exit status.
+   */
+  private String meaning;
 
-    /**
-     * Holder for commentary string of exit status.
-     */
-    private String comment;
+  /**
+   * Holder for commentary string of exit status.
+   */
+  private String comment;
 
-    /**
-     * Protected constructor, for instantiating recommended to use
-     * {@link ExitStatusBuilderFactory}.
-     *
-     * <pre>
-     * void do(...) {
-     *      ...
-     *      ExitStatusBuilder b = ExitStatusBuildFactory.createBuilder();
-     *      ...
-     * }
-     * </pre>
-     *
-     */
-    protected ExitStatusBuilderImpl(){ }
+  /**
+   * Protected constructor, for instantiating recommended to use {@link ExitStatusBuilderFactory}.
+   *
+   * <pre>
+   * void do(...) {
+   *      ...
+   *      ExitStatusBuilder b = ExitStatusBuildFactory.createBuilder();
+   *      ...
+   * }
+   * </pre>
+   */
+  protected ExitStatusBuilderImpl() {
+  }
 
-    private ExitStatusBuilderImpl(ExitStatusBuilderImpl that){
-        this.code = that.code;
-        this.meaning = that.meaning;
-        this.comment = that.comment;
-    }
+  private ExitStatusBuilderImpl(ExitStatusBuilderImpl that) {
+    this.code = that.code;
+    this.meaning = that.meaning;
+    this.comment = that.comment;
+  }
 
-    @Override
-    public ExitStatus build() {
-        final ExitStatus s = new ExitStatusImpl(code, meaning, comment);
-        reset();
-        return s;
-    }
+  @Override
+  public ExitStatus build() {
+    final ExitStatus s = new ExitStatusImpl(code, meaning, comment);
+    reset();
+    return s;
+  }
 
-    @Override
-    public ExitStatusBuilderImpl clone() {
-        return new ExitStatusBuilderImpl(this);
-    }
+  @Override
+  public ExitStatusBuilderImpl clone() {
+    return new ExitStatusBuilderImpl(this);
+  }
 
-    @Override
-    public ExitStatusBuilderImpl code(int code) {
-        this.code = code;
-        return this;
-    }
+  @Override
+  public ExitStatusBuilderImpl code(int code) {
+    this.code = code;
+    return this;
+  }
 
-    @Override
-    public ExitStatusBuilderImpl meaning(String meaning) {
-        this.meaning = meaning;
-        return this;
-    }
+  @Override
+  public ExitStatusBuilderImpl meaning(String meaning) {
+    this.meaning = meaning;
+    return this;
+  }
 
-    @Override
-    public ExitStatusBuilderImpl comment(String comment) {
-        this.comment = comment;
-        return this;
-    }
+  @Override
+  public ExitStatusBuilderImpl comment(String comment) {
+    this.comment = comment;
+    return this;
+  }
 
-    private void reset() {
-        code = 0;
-        meaning = null;
-        comment = null;
-    }
+  private void reset() {
+    code = 0;
+    meaning = null;
+    comment = null;
+  }
 
 }

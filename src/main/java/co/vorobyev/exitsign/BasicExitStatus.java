@@ -24,84 +24,87 @@ package co.vorobyev.exitsign;
  */
 public class BasicExitStatus extends ExitStatus {
 
-    /** Successful termination. */
-    public static final ExitStatus SUCCESS;
+  /**
+   * Successful termination.
+   */
+  public static final ExitStatus SUCCESS;
 
-    /** Unsuccessful termination. */
-    public static final ExitStatus FAILURE;
+  /**
+   * Unsuccessful termination.
+   */
+  public static final ExitStatus FAILURE;
 
-    static {
-        ExitStatusBuilder builder = ExitStatusBuilderFactory.createBuilder();
+  static {
+    ExitStatusBuilder builder = ExitStatusBuilderFactory.createBuilder();
 
-        SUCCESS = builder.code(0).meaning("Successful termination").build();
-        FAILURE = builder.code(1).meaning("Unsuccessful termination").build();
-    }
+    SUCCESS = builder.code(0).meaning("Successful termination").build();
+    FAILURE = builder.code(1).meaning("Unsuccessful termination").build();
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     */
-    protected BasicExitStatus() {
-        super();
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   */
+  protected BasicExitStatus() {
+    super();
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     */
-    protected BasicExitStatus(int code) {
-        super(code);
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code a numeric code of the exit status
+   */
+  protected BasicExitStatus(int code) {
+    super(code);
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     * @param meaning a meaning description of the exit status
-     */
-    protected BasicExitStatus(int code, String meaning) {
-        super(code, meaning);
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code    a numeric code of the exit status
+   * @param meaning a meaning description of the exit status
+   */
+  protected BasicExitStatus(int code, String meaning) {
+    super(code, meaning);
+  }
 
-    /**
-     * Protected constructor, use on of the static methods to obtain a
-     * {@link ExitStatusBuilder} instance and obtain a ExitStatus from that.
-     *
-     * @param code a numeric code of the exit status
-     * @param meaning a meaning description of the exit status
-     * @param comment a commentary on the exit status
-     */
-    protected BasicExitStatus(int code, String meaning, String comment) {
-        super(code, meaning, comment);
-    }
+  /**
+   * Protected constructor, use on of the static methods to obtain a {@link ExitStatusBuilder}
+   * instance and obtain a ExitStatus from that.
+   *
+   * @param code    a numeric code of the exit status
+   * @param meaning a meaning description of the exit status
+   * @param comment a commentary on the exit status
+   */
+  protected BasicExitStatus(int code, String meaning, String comment) {
+    super(code, meaning, comment);
+  }
 
-    /**
-     * Create a new ExitStatusBuilder for successful exit status, set meaning
-     * description using the supplied value.
-     *
-     * @param meaning the meaning description of exit status
-     * @return a new ExitStatusBuilder
-     */
-    public static ExitStatusBuilder success(String meaning) {
-        ExitStatusBuilder b = fromStatus(SUCCESS).meaning(meaning);
-        return b;
-    }
+  /**
+   * Create a new ExitStatusBuilder for successful exit status, set meaning description using the
+   * supplied value.
+   *
+   * @param meaning the meaning description of exit status
+   * @return a new ExitStatusBuilder
+   */
+  public static ExitStatusBuilder success(String meaning) {
+    ExitStatusBuilder builder = fromStatus(SUCCESS).meaning(meaning);
+    return builder;
+  }
 
 
-    /**
-     * Create a new ExitStatusBuilder for unsuccessful exit status, set meaning
-     * description using the supplied value.
-     *
-     * @param meaning the meaning description of exit status
-     * @return a new ExitStatusBuilder
-     */
-    public static ExitStatusBuilder failure(String meaning) {
-        ExitStatusBuilder b = fromStatus(FAILURE).meaning(meaning);
-        return b;
-    }
+  /**
+   * Create a new ExitStatusBuilder for unsuccessful exit status, set meaning description using the
+   * supplied value.
+   *
+   * @param meaning the meaning description of exit status
+   * @return a new ExitStatusBuilder
+   */
+  public static ExitStatusBuilder failure(String meaning) {
+    ExitStatusBuilder builder = fromStatus(FAILURE).meaning(meaning);
+    return builder;
+  }
 
 }

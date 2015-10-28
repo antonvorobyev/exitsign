@@ -25,26 +25,26 @@ package co.vorobyev.exitsign;
  */
 public class ExitStatusImpl extends ExitStatus {
 
-    /**
-     * Constructs ExitStatus instance.
-     *
-     * @param code a numeric code of exit status
-     * @param meaning a meaning description of exit status
-     * @param comment a commentary string on exit status
-     */
-    public ExitStatusImpl(int code, String meaning, String comment) {
-        super(code, meaning, comment);
-    }
+  /**
+   * Constructs ExitStatus instance.
+   *
+   * @param code    a numeric code of exit status
+   * @param meaning a meaning description of exit status
+   * @param comment a commentary string on exit status
+   */
+  public ExitStatusImpl(int code, String meaning, String comment) {
+    super(code, meaning, comment);
+  }
 
-    public ExitStatusImpl(int code) {
-        super(code);
-    }
+  public ExitStatusImpl(int code) {
+    super(code);
+  }
 
-    public ExitStatusImpl(int code, String meaning) {
-        super(code, meaning);
-    }
+  public ExitStatusImpl(int code, String meaning) {
+    super(code, meaning);
+  }
 
-    public ExitStatusImpl() {
-        super();
-    }
+  public ExitStatusImpl() {
+    super();
+  }
 }

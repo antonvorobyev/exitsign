@@ -17,59 +17,59 @@ limitations under the License.
 
 package co.vorobyev.exitsign;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Test;
+
 public class PosixExitStatusTest extends ExitStatusTest {
 
 
-    @Override
-    public ExitStatus newStatus() {
-        return new PosixExitStatus();
-    }
+  @Override
+  public ExitStatus newStatus() {
+    return new PosixExitStatus();
+  }
 
-    @Override
-    public ExitStatus newStatus(int code) {
-        return new PosixExitStatus(code);
-    }
+  @Override
+  public ExitStatus newStatus(int code) {
+    return new PosixExitStatus(code);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning) {
-        return new PosixExitStatus(code, meaning);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning) {
+    return new PosixExitStatus(code, meaning);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning, String comment) {
-        return new PosixExitStatus(code, meaning, comment);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning, String comment) {
+    return new PosixExitStatus(code, meaning, comment);
+  }
 
-    @Test
-    public void errorShouldCreateBuilderWithErrorStatusCodeAndSuppliedMeaning() throws Exception {
-        String meaning = "mean 14";
+  @Test
+  public void errorShouldCreateBuilderWithErrorStatusCodeAndSuppliedMeaning() throws Exception {
+    String meaning = "mean 14";
 
-        ExitStatusBuilder builder = PosixExitStatus.error(meaning);
+    ExitStatusBuilder builder = PosixExitStatus.error(meaning);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
 
-        ExitStatus status = builder.build();
-        assertEquals(PosixExitStatus.ERROR.code(), status.code());
-        assertEquals(meaning, status.meaning());
-    }
+    ExitStatus status = builder.build();
+    assertEquals(PosixExitStatus.ERROR.code(), status.code());
+    assertEquals(meaning, status.meaning());
+  }
 
-    @Test
-    public void okShouldCreateBuilderWithOkStatusCodeAndSuppliedMeaning() throws Exception {
-        String meaning = "mean 14";
+  @Test
+  public void okShouldCreateBuilderWithOkStatusCodeAndSuppliedMeaning() throws Exception {
+    String meaning = "mean 14";
 
-        ExitStatusBuilder builder = PosixExitStatus.ok(meaning);
+    ExitStatusBuilder builder = PosixExitStatus.ok(meaning);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
 
-        ExitStatus status = builder.build();
-        assertEquals(PosixExitStatus.OK.code(), status.code());
-        assertEquals(meaning, status.meaning());
-    }
+    ExitStatus status = builder.build();
+    assertEquals(PosixExitStatus.OK.code(), status.code());
+    assertEquals(meaning, status.meaning());
+  }
 
 }

@@ -17,62 +17,62 @@ limitations under the License.
 
 package co.vorobyev.exitsign;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Test;
+
 public class BasicExitStatusTest extends ExitStatusTest {
 
 
-    @Override
-    public ExitStatus newStatus() {
-        return new BasicExitStatus();
-    }
+  @Override
+  public ExitStatus newStatus() {
+    return new BasicExitStatus();
+  }
 
-    @Override
-    public ExitStatus newStatus(int code) {
-        return new BasicExitStatus(code);
-    }
+  @Override
+  public ExitStatus newStatus(int code) {
+    return new BasicExitStatus(code);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning) {
-        return new BasicExitStatus(code, meaning);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning) {
+    return new BasicExitStatus(code, meaning);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning, String comment) {
-        return new BasicExitStatus(code, meaning, comment);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning, String comment) {
+    return new BasicExitStatus(code, meaning, comment);
+  }
 
-    @SuppressWarnings("Duplicates")
-    @Test
-    public void failureShouldCreateBuilderWithFailureStatusCodeAndSuppliedMeaning() throws Exception {
-        String meaning = "mean 14";
+  @SuppressWarnings("Duplicates")
+  @Test
+  public void failureShouldCreateBuilderWithFailureStatusCodeAndSuppliedMeaning() throws Exception {
+    String meaning = "mean 14";
 
-        ExitStatusBuilder builder = BasicExitStatus.failure(meaning);
+    ExitStatusBuilder builder = BasicExitStatus.failure(meaning);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
 
-        ExitStatus status = builder.build();
-        assertEquals(BasicExitStatus.FAILURE.code(), status.code());
-        assertEquals(meaning, status.meaning());
-    }
+    ExitStatus status = builder.build();
+    assertEquals(BasicExitStatus.FAILURE.code(), status.code());
+    assertEquals(meaning, status.meaning());
+  }
 
-    @SuppressWarnings("Duplicates")
-    @Test
-    public void successShouldCreateBuilderWithSuccessStatusCodeAndSuppliedMeaning() throws Exception {
-        String meaning = "mean 14";
+  @SuppressWarnings("Duplicates")
+  @Test
+  public void successShouldCreateBuilderWithSuccessStatusCodeAndSuppliedMeaning() throws Exception {
+    String meaning = "mean 14";
 
-        ExitStatusBuilder builder = BasicExitStatus.success(meaning);
+    ExitStatusBuilder builder = BasicExitStatus.success(meaning);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
 
-        ExitStatus status = builder.build();
-        assertEquals(BasicExitStatus.SUCCESS.code(), status.code());
-        assertEquals(meaning, status.meaning());
-    }
+    ExitStatus status = builder.build();
+    assertEquals(BasicExitStatus.SUCCESS.code(), status.code());
+    assertEquals(meaning, status.meaning());
+  }
 
 
 }

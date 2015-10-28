@@ -17,48 +17,48 @@ limitations under the License.
 
 package co.vorobyev.exitsign;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Test;
+
 public class WinExitStatusTest extends ExitStatusTest {
 
 
-    @Override
-    public ExitStatus newStatus() {
-        return new WinExitStatus();
-    }
+  @Override
+  public ExitStatus newStatus() {
+    return new WinExitStatus();
+  }
 
-    @Override
-    public ExitStatus newStatus(int code) {
-        return new WinExitStatus(code);
-    }
+  @Override
+  public ExitStatus newStatus(int code) {
+    return new WinExitStatus(code);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning) {
-        return new WinExitStatus(code, meaning);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning) {
+    return new WinExitStatus(code, meaning);
+  }
 
-    @Override
-    public ExitStatus newStatus(int code, String meaning, String comment) {
-        return new WinExitStatus(code, meaning, comment);
-    }
+  @Override
+  public ExitStatus newStatus(int code, String meaning, String comment) {
+    return new WinExitStatus(code, meaning, comment);
+  }
 
-    @SuppressWarnings("Duplicates")
-    @Test
-    public void successShouldCreateBuilderWithSuccessStatusCodeAndSuppliedMeaning() throws Exception {
-        String meaning = "mean 14";
+  @SuppressWarnings("Duplicates")
+  @Test
+  public void successShouldCreateBuilderWithSuccessStatusCodeAndSuppliedMeaning() throws Exception {
+    String meaning = "mean 14";
 
-        ExitStatusBuilder builder = WinExitStatus.success(meaning);
+    ExitStatusBuilder builder = WinExitStatus.success(meaning);
 
-        assertThat(builder, instanceOf(ExitStatusBuilder.class));
+    assertThat(builder, instanceOf(ExitStatusBuilder.class));
 
-        ExitStatus status = builder.build();
-        assertEquals(WinExitStatus.SUCCESS.code(), status.code());
-        assertEquals(meaning, status.meaning());
-    }
+    ExitStatus status = builder.build();
+    assertEquals(WinExitStatus.SUCCESS.code(), status.code());
+    assertEquals(meaning, status.meaning());
+  }
 
 
 }
