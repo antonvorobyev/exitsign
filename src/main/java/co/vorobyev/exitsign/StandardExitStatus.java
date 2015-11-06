@@ -39,11 +39,19 @@ public class StandardExitStatus extends ExitStatus {
    */
   public static final ExitStatus FAILURE;
 
+  /**
+   * Invalid command line argument.
+   */
+  public static final ExitStatus INVALID_ARGUMENT;
+
   static {
     ExitStatusBuilder builder = ExitStatusBuilderFactory.createBuilder();
 
     SUCCESS = builder.code(0).meaning("Successful termination").build();
+
     FAILURE = builder.code(1).meaning("Failed execution").build();
+
+    INVALID_ARGUMENT = builder.code(2).meaning("Invalid command line argument").build();
   }
 
   /**
