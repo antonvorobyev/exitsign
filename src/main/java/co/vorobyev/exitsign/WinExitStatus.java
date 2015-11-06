@@ -517,6 +517,11 @@ public class WinExitStatus extends ExitStatus {
    */
   public static final ExitStatus WAIT_NO_CHILDREN;
 
+  /**
+   * Invalid command line argument..
+   */
+  public static final ExitStatus INVALID_COMMAND_LINE;
+
   static {
     ExitStatusBuilder builder = ExitStatusBuilderFactory.createBuilder();
 
@@ -763,6 +768,8 @@ public class WinExitStatus extends ExitStatus {
 
     WAIT_NO_CHILDREN = builder.code(128)
         .meaning("There are no child processes to wait for").build();
+
+    INVALID_COMMAND_LINE = builder.code(1639).meaning("Invalid command line argument").build();
 
   }
 
