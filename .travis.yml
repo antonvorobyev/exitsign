@@ -45,7 +45,7 @@ install: true
 #script: mvn clean versions:set -DnewVersion=0.1.0 verify
 
 script:
-  - '[ "${TRAVIS_BRANCH}" = "master" ] && mvn clean deploy site-deploy --settings ./settings.xml || false'
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && mvn clean deploy site-deploy --settings ./settings.xml || false'
 #  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || false'
 
 # NOTE: Following line can be introduced later
