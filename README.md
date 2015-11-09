@@ -27,8 +27,59 @@ Dependency lines for snapshot:
       <artifactId>exitsign</artifactId>
       <version>0.2.0-SNAPSHOT</version>
     </dependency>
+
+## Usage
     
-## Usage and Documentation 
+Simple usage:
+    
+```java
+
+import static co.vorobyev.exitsign.StandardExitStatus.FAILURE;
+import static co.vorobyev.exitsign.StandardExitStatus.SUCCESS;
+    
+/**
+ * This is example class that demonstrates 'main class' with using exit statuses.
+ */
+public class App {
+    
+    /**
+     * Utility constant imitating valid arguments.
+     */
+    public static final String[] validArgs = {"valid"};
+    
+    /**
+     * Validates application arguments.
+     *
+     * @param args application arguments.
+     * @return true if arguments is valid else false.
+     */
+    private static boolean isValid(String[] args) {
+      return Arrays.equals(args, validArgs);
+    }
+    
+    /**
+     * Executes app with propounded arguments.
+     *
+     * @param args app arguments.
+     */
+    public static void main(String... args) {
+      ExitStatus status;
+    
+      if (isValid(args)) {
+        status = SUCCESS;
+      } else {
+        status = FAILURE;
+      }
+    
+      System.exit(status.code());
+    }
+    
+}
+```
+
+More complex usages you can get from unit and integration tests. We follow "Tests as Examples" idea.    
+    
+## Documentation 
 
 Exit Sign's documentation is stored in the gh-pages branch and is available online at 
 [http://vorobyev.co/exitsign/](http://vorobyev.co/exitsign/).
