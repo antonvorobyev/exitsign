@@ -28,10 +28,25 @@ Dependency lines for snapshot:
       <version>0.2.0-SNAPSHOT</version>
     </dependency>
     
-## Usage & Documentation 
+## Usage and Documentation 
 
 Exit Sign's documentation is stored in the gh-pages branch and is available online at 
 (http://vorobyev.co/exitsign/)(http://vorobyev.co/exitsign/).
+
+## Feedback and Support
+ 
+Please send any feedback to e-mail (anton@vorobyev.co)(mailto:anton@vorobyev.co).
+ 
+Bugs and feature requests leave at (https://github.com/antonvorobyev/exitsign/issues)(https://github.com/antonvorobyev/exitsign/issues).
+
+## Contributing
+
+You have three options if you have a feature request, found a bug or simply have a question about
+Exit Sign:
+
+* Write [issues](https://github.com/antonvorobyev/exitsign/issues).
+* Create a pull request. See ["Understanding the GitHub Flow"](https://github.com/antonvorobyev/exitsign/issues).
+* Write a mail to [anton@vorobyev.co](mailto:anton@vorobyev.co).
 
 ## Continuous Integration
 
@@ -51,12 +66,6 @@ And after enable "GoogleStyle" in IDE settings of Java code style.
  
 Build settings of Exit Sign project configured for style checking using checkstyle. It is validated
 at build start phase (mvn validate) and fill report when called maven site goal.
-
-## Feedback & Support
- 
-Please send any feedback to e-mail (anton@vorobyev.co)(mailto:anton@vorobyev.co).
- 
-Bugs and feature requests leave at (https://github.com/antonvorobyev/exitsign/issues)(https://github.com/antonvorobyev/exitsign/issues).
 
 ## Related Resource
 
