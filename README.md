@@ -31,13 +31,13 @@ Dependency lines for snapshot:
 ## Usage and Documentation 
 
 Exit Sign's documentation is stored in the gh-pages branch and is available online at 
-(http://vorobyev.co/exitsign/)(http://vorobyev.co/exitsign/).
+[http://vorobyev.co/exitsign/](http://vorobyev.co/exitsign/).
 
 ## Feedback and Support
  
-Please send any feedback to e-mail (anton@vorobyev.co)(mailto:anton@vorobyev.co).
+Please send any feedback to e-mail [anton@vorobyev.co](mailto:anton@vorobyev.co).
  
-Bugs and feature requests leave at (https://github.com/antonvorobyev/exitsign/issues)(https://github.com/antonvorobyev/exitsign/issues).
+Bugs and feature requests leave at [https://github.com/antonvorobyev/exitsign/issues](https://github.com/antonvorobyev/exitsign/issues).
 
 ## Contributing
 
