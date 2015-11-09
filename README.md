@@ -5,8 +5,6 @@
 
 Exit Sign is a utility library for handy usage of exit statuses in Java software.
 
-Documentation is available in HTML format, see (http://vorobyev.co/exitsign/)(http://vorobyev.co/exitsign/).
-
 ## Installation
 
 The latest release version can be found at [GitHub Releases](https://github.com/antonvorobyev/exitsign/releases) 
@@ -29,6 +27,11 @@ Dependency lines for snapshot:
       <artifactId>exitsign</artifactId>
       <version>0.2.0-SNAPSHOT</version>
     </dependency>
+    
+## Usage & Documentation 
+
+Exit Sign's documentation is stored in the gh-pages branch and is available online at 
+(http://vorobyev.co/exitsign/)(http://vorobyev.co/exitsign/).
 
 ## Continuous Integration
 
