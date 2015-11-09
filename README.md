@@ -11,7 +11,7 @@ Exit Sign is utility library for handy usage of exit statuses in Java software.
 Exit Sign loves continuous integration and we use wonderful 
 [Travis CI](https://travis-ci.org/antonvorobyev/exitsign). 
  
-Now our build status for master [![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg)](https://travis-ci.org/antonvorobyev/exitsign)
+Now our build status for master [![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg?branch=master)](https://travis-ci.org/antonvorobyev/exitsign)
 
 ## Source Code Style
 
