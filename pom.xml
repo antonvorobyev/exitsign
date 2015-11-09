@@ -21,7 +21,7 @@
     <artifactId>exitsign</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
-    <name>Exit Sign</name>
+    <name>Exit Sign 2</name>
     <description>Utility library for handy usage of exit statuses in Java software</description>
 
     <licenses>
