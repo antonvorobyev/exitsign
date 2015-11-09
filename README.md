@@ -3,7 +3,14 @@
 [![][mavenbadge img]][mavenbadge]
 [![][license img]][license]
 
-Exit Sign is utility library for handy usage of exit statuses in Java software.
+Exit Sign is a utility library for handy usage of exit statuses in Java software.
+
+The latest release version can be found at [GitHub Releases](https://github.com/antonvorobyev/exitsign/releases) 
+or at [Maven repository](http://repo1.maven.org/maven2/co/vorobyev/exitsign/).
+ 
+Each-commit builds or maven artifacts can be found at [Maven Snapshot repository](https://oss.sonatype.org/content/repositories/snapshots/co/vorobyev/exitsign/).
+
+Documentation is available in HTML format, see (http://vorobyev.co/exitsign/)(http://vorobyev.co/exitsign/).
 
 ## Continuous Integration
 
