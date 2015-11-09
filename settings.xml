@@ -13,6 +13,17 @@
         </server>
 
         <server>
+            <id>gh-pages</id>
+            <username>git</username>
+
+            <!--<configuration>-->
+                <!--<scmVersionType>branch</scmVersionType>-->
+                <!--<scmVersion>gh-pages</scmVersion>-->
+            <!--</configuration>-->
+
+        </server>
+
+        <server>
             <id>gpg.passphrase</id>
             <passphrase>${env.GPG_PASSPHRASE}</passphrase>
         </server>
@@ -31,8 +42,10 @@
 
             <properties>
                 <gpg.defaultKeyring>false</gpg.defaultKeyring>
-                <gpg.publicKeyring>/home/travis/build/antonvorobyev/exitsign/pubring.gpg</gpg.publicKeyring>
-                <gpg.secretKeyring>/home/travis/build/antonvorobyev/exitsign/secring.gpg</gpg.secretKeyring>
+                <gpg.publicKeyring>/home/travis/build/antonvorobyev/exitsign/pubring.gpg
+                </gpg.publicKeyring>
+                <gpg.secretKeyring>/home/travis/build/antonvorobyev/exitsign/secring.gpg
+                </gpg.secretKeyring>
             </properties>
 
         </profile>

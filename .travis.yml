@@ -14,6 +14,12 @@ before_install:
    - echo $JAVA_HOME
    - gpg --yes --batch --passphrase=$SECKEY_PASSWORD secring.gpg.gpg
    - gpg --yes --batch --passphrase=$SECKEY_PASSWORD pubring.gpg.gpg
+   - gpg --yes --batch --passphrase=$SECKEY_PASSWORD id_rsa.gpg
+   - eval "$(ssh-agent -s)" # start the ssh agent
+   - chmod 600 id_rsa
+   - ssh-add id_rsa
+   - git config --global user.email "travis@vorobyev.co"
+   - git config --global user.name "Travis CI"
 
 
 #os:
@@ -37,7 +43,7 @@ cache:
 install: true
 # NOTE: Following line can be introduced later
 #script: mvn clean versions:set -DnewVersion=0.1.0 verify
-script: mvn clean deploy --settings ./settings.xml
+script: mvn clean deploy site-deploy --settings ./settings.xml
 # NOTE: Following line can be introduced later
 #after_success: mvn gpg:sign site deploy:deploy assembly:single
 #after_success: mvn gpg:sign deploy:deploy --settings ~/settings.xml
