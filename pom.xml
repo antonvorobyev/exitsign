@@ -109,13 +109,6 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
 
-        <!--<site>-->
-            <!--<id>gh-pages</id>-->
-            <!--<name>Exit Sign Site</name>-->
-            <!--&lt;!&ndash;<url>scm:git:ssh://git@github.com/antonvorobyev/exitsign.git</url>&ndash;&gt;-->
-            <!--<url>scm:git:https://github.com/antonvorobyev/exitsign.git</url>-->
-        <!--</site>-->
-
         <site>
             <id>gh-pages</id>
             <name>Exit Sign Site</name>
