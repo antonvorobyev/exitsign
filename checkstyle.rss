@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2015 Anton Vorobyev</copyright>
     <item>
-      <title>File: 19,
+      <title>File: 21,
              Errors: 0,
-             Warnings: 1,
+             Warnings: 2,
              Infos: 0
       </title>
             <link>https://antonvorobyev.github.io/exitsign//checkstyle.html</link>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderFactory.java">co/vorobyev/exitsign/ExitStatusBuilderFactory.java</a>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderTest.java">co/vorobyev/exitsign/ExitStatusBuilderTest.java</a>
                 </td>
                 <td>
                   0
@@ -60,35 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.PosixExitStatus.java">co/vorobyev/exitsign/PosixExitStatus.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.WinExitStatusTest.java">co/vorobyev/exitsign/WinExitStatusTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.StandardExitStatusTest.java">co/vorobyev/exitsign/StandardExitStatusTest.java</a>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusImplTest.java">co/vorobyev/exitsign/ExitStatusImplTest.java</a>
                 </td>
                 <td>
                   0
@@ -130,63 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderImpl.java">co/vorobyev/exitsign/ExitStatusBuilderImpl.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilder.java">co/vorobyev/exitsign/ExitStatusBuilder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusImplTest.java">co/vorobyev/exitsign/ExitStatusImplTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.StandardExitStatus.java">co/vorobyev/exitsign/StandardExitStatus.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.BasicExitStatusTest.java">co/vorobyev/exitsign/BasicExitStatusTest.java</a>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusAdapter.java">co/vorobyev/exitsign/ExitStatusAdapter.java</a>
                 </td>
                 <td>
                   0
@@ -228,49 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.PosixExitStatusTest.java">co/vorobyev/exitsign/PosixExitStatusTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusIT.java">co/vorobyev/exitsign/ExitStatusIT.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusTest.java">co/vorobyev/exitsign/ExitStatusTest.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderTest.java">co/vorobyev/exitsign/ExitStatusBuilderTest.java</a>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.StandardExitStatusTest.java">co/vorobyev/exitsign/StandardExitStatusTest.java</a>
                 </td>
                 <td>
                   0
@@ -298,7 +172,161 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.PosixExitStatusTest.java">co/vorobyev/exitsign/PosixExitStatusTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.StandardExitStatus.java">co/vorobyev/exitsign/StandardExitStatus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusTest.java">co/vorobyev/exitsign/ExitStatusTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusIT.java">co/vorobyev/exitsign/ExitStatusIT.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderImpl.java">co/vorobyev/exitsign/ExitStatusBuilderImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderImplTest.java">co/vorobyev/exitsign/ExitStatusBuilderImplTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilder.java">co/vorobyev/exitsign/ExitStatusBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.BasicExitStatusTest.java">co/vorobyev/exitsign/BasicExitStatusTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.PosixExitStatus.java">co/vorobyev/exitsign/PosixExitStatus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.AdaptiveExitStatusIT.java">co/vorobyev/exitsign/AdaptiveExitStatusIT.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.WinExitStatusTest.java">co/vorobyev/exitsign/WinExitStatusTest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://antonvorobyev.github.io/exitsign//checkstyle.html#co.vorobyev.exitsign.ExitStatusBuilderFactory.java">co/vorobyev/exitsign/ExitStatusBuilderFactory.java</a>
                 </td>
                 <td>
                   0
