@@ -1,6 +1,7 @@
 # Exit Sign
 [![][travis img]][travis]
 [![][mavenbadge img]][mavenbadge]
+[![][license img]][license]
 
 Exit Sign is utility library for handy usage of exit statuses in Java software.
 
@@ -38,3 +39,6 @@ Code copyright 2015 Anton Vorobyev. Code released under
 
 [mavenbadge]:http://search.maven.org/#search|gav|1|g%3A%22co.vorobyev%22%20AND%20a%3A%22exitsign%22
 [mavenbadge img]:https://maven-badges.herokuapp.com/maven-central/co.vorobyev/exitsign/badge.svg
+
+[license]:LICENSE
+[license img]:https://img.shields.io/badge/license-Apache%20v2.0-blue.svg
