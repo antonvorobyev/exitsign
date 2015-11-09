@@ -1,8 +1,5 @@
-*“A picture is worth a thousand words”*
-
-[![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg)](https://travis-ci.org/antonvorobyev/exitsign)
-
 # Exit Sign
+[![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg)](https://travis-ci.org/antonvorobyev/exitsign)
 
 Exit Sign is utility library for handy usage of exit statuses in Java software.
 
