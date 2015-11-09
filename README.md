@@ -1,5 +1,6 @@
 # Exit Sign
-[![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg)](https://travis-ci.org/antonvorobyev/exitsign)
+[![][travis img]][travis]
+[![][mavenbadge img]][mavenbadge]
 
 Exit Sign is utility library for handy usage of exit statuses in Java software.
 
@@ -30,3 +31,10 @@ All bookmarks to related resources are collected at [Delicious](https://deliciou
  
 Code copyright 2015 Anton Vorobyev. Code released under 
 [Apache License, Version 2.0](https://github.com/antonvorobyev/exitsign/blob/master/LICENSE) 
+
+
+[travis]:https://travis-ci.org/antonvorobyev/exitsign/builds
+[travis img]:https://secure.travis-ci.org/antonvorobyev/exitsign.svg?branch=master
+
+[mavenbadge]:http://search.maven.org/#search|gav|1|g%3A%22co.vorobyev%22%20AND%20a%3A%22exitsign%22
+[mavenbadge img]:https://maven-badges.herokuapp.com/maven-central/co.vorobyev/exitsign/badge.svg
