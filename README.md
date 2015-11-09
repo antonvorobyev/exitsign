@@ -31,6 +31,12 @@ And after enable "GoogleStyle" in IDE settings of Java code style.
 Build settings of Exit Sign project configured for style checking using checkstyle. It is validated
 at build start phase (mvn validate) and fill report when called maven site goal.
 
+## Feedback & Support
+ 
+Please send any feedback to e-mail (anton@vorobyev.co)(mailto:anton@vorobyev.co).
+ 
+Bugs and feature requests leave at (https://github.com/antonvorobyev/exitsign/issues)(https://github.com/antonvorobyev/exitsign/issues).
+
 ## Related Resource
 
 All bookmarks to related resources are collected at [Delicious](https://delicious.com/anton.vorobyev/exitsign).
