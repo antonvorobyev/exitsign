@@ -5,6 +5,16 @@
 
 Exit Sign is a utility library for handy usage of exit statuses in Java software.
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Documentation](#documentation)
+* [Continuous Integration](#continuous-integration)
+* [Source Code Style](#source-code-style)
+* [Related Resources](#related-resources)
+* [Copyright and License](#copyright-and-license)
+
 ## Installation
 
 The latest release version can be found at [GitHub Releases](https://github.com/antonvorobyev/exitsign/releases) 
@@ -128,7 +138,7 @@ And after enable "GoogleStyle" in IDE settings of Java code style.
 Build settings of Exit Sign project configured for style checking using checkstyle. It is validated
 at build start phase (mvn validate) and fill report when called maven site goal.
 
-## Related Resource
+## Related Resources
 
 All bookmarks to related resources are collected at [Delicious](https://delicious.com/anton.vorobyev/exitsign).
 
