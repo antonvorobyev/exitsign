@@ -43,10 +43,17 @@ cache:
 install: true
 # NOTE: Following line can be introduced later
 #script: mvn clean versions:set -DnewVersion=0.1.0 verify
-script: mvn clean deploy site-deploy --settings ./settings.xml
+
+script:
+  - '[ "${TRAVIS_BRANCH}" = "master" ] && mvn clean deploy site-deploy --settings ./settings.xml || false'
+#  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || false'
+
 # NOTE: Following line can be introduced later
 #after_success: mvn gpg:sign site deploy:deploy assembly:single
 #after_success: mvn gpg:sign deploy:deploy --settings ~/settings.xml
+
+# after_success:
+#   - "[[ $TRAVIS_BRANCH == \"master\" ]] && { mvn site-deploy --settings ./settings.xml; };"
 
 #deploy:
 #  provider: script
