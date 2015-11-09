@@ -45,17 +45,27 @@ You have three options if you have a feature request, found a bug or simply have
 Exit Sign:
 
 * Write [issues](https://github.com/antonvorobyev/exitsign/issues).
-* Create a pull request. See ["Understanding the GitHub Flow"](https://github.com/antonvorobyev/exitsign/issues).
+* Create a pull request. See ["Understanding the GitHub Flow"](https://guides.github.com/introduction/flow/index.html).
 * Write a mail to [anton@vorobyev.co](mailto:anton@vorobyev.co).
 
-## Continuous Integration
+## Development
+
+Exit Sign is build with Maven. If you want to contribute code than
+
+* Please write a test for your change.
+* Ensure that you didn't break the build by running mvn verify.
+* Fork the repo and create a pull request. Exit Sing uses GitHub Flow.
+
+Your pull request will be automatically build by our continuous integration servers.
+
+### Continuous Integration
 
 Exit Sign loves continuous integration and we use wonderful 
 [Travis CI](https://travis-ci.org/antonvorobyev/exitsign). 
  
 Now our build status for master [![Build Status](https://travis-ci.org/antonvorobyev/exitsign.svg?branch=master)](https://travis-ci.org/antonvorobyev/exitsign)
 
-## Source Code Style
+### Source Code Style
 
 We follow predefined rules of source code styling. Our choice is ["Google Code Style"](http://google.github.io/styleguide/javaguide.html).
 
